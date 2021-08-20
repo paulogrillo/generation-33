@@ -7,7 +7,18 @@ programa
 {
 	
 	funcao inicio(){
+		//Variáveis 
+		real custoFabricacao, carroNovo
 		
+		//Entrada de dados
+		escreva("Digite o custo de fabricação: ")
+		leia(custoFabricacao)
+		
+		//Processamento
+		carroNovo = ((custoFabricacao*28)/100) + ((custoFabricacao*45)/100) + custoFabricacao
+		
+		//Saída de dados
+		escreva("O preço total a ser pago pelo carro novo é de R$ ", carroNovo)
 	}
 }
 /* $$$ Portugol Studio $$$ 
@@ -15,7 +26,7 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 361; 
+ * @POSICAO-CURSOR = 472; 
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;

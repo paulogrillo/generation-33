@@ -5,9 +5,17 @@
 programa
 {
 	
-	funcao inicio()
-	{
-		escreva("Olá Mundo")
+	funcao inicio(){
+
+		//Variáveis 
+		real ax,by,dx,ey,c,f
+		
+		//Entrada de dados
+		escreva()
+		//Processamento
+		x = ((ax+by)-(dx*
+		//Saída de dados
+		
 	}
 }
 /* $$$ Portugol Studio $$$ 
@@ -15,7 +23,7 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 288; 
+ * @POSICAO-CURSOR = 371; 
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
