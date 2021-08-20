@@ -6,7 +6,22 @@ programa
 	
 	funcao inicio()
 	{
-		escreva("Olá Mundo")
+		inteiro primeiraNota, segundaNota, terceiraNota, media, mediaPond
+
+		escreva("digite a primeira nota ")
+		leia(primeiraNota)
+
+		escreva("digite a segunda nota ")
+		leia(segundaNota)
+
+		escreva("digite a terceira nota ")
+		leia(terceiraNota)
+
+		media = (primeiraNota*2)+(segundaNota*3)+(terceiraNota*5)
+		mediaPond =media/10
+
+		escreva("A média ponderada é "+mediaPond)
+
 	}
 }
 /* $$$ Portugol Studio $$$ 
@@ -14,7 +29,7 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 177; 
+ * @POSICAO-CURSOR = 581; 
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;

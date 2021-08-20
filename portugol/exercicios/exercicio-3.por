@@ -5,7 +5,19 @@ programa
 	
 	funcao inicio()
 	{
-		escreva("Olá Mundo")
+	inteiro horas, minutos, segundos, seg
+	
+	
+	escreva("Insira o tempo de duração do evento em segundos: ")
+	leia(segundos)
+
+	horas=(segundos/3600)
+	minutos=((segundos%3600) /60)
+	seg =((segundos % 3600)% 60)
+	
+	
+	escreva("A duração do evento foi: " +horas+" Horas "+minutos+" Minutos e "+seg+ " segundos")
+	
 	}
 }
 /* $$$ Portugol Studio $$$ 
@@ -13,7 +25,7 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 206; 
+ * @POSICAO-CURSOR = 472; 
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
