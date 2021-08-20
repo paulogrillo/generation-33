@@ -7,9 +7,7 @@ programa {
 	// variaveis 
 	inteiro dias, meses, anos
 
-	
 	// Entrada de dados
-	// pedir pro usuário informar a idade em dias
 	escreva("Escreva sua idade em dias: ")
 	leia(dias)
 
@@ -18,7 +16,7 @@ programa {
 	meses=(dias%365)/30
 	dias=((dias%365)%30)
 
-	//saídas
+	// Saídas
 	escreva("Sua idade em anos é: "+anos+" anos \n")
 	escreva("Sua idade em meses é: "+meses+" meses \n")
 	escreva("Sua idade em dias é: "+dias+" dias \n")
@@ -30,7 +28,7 @@ programa {
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 574; 
+ * @POSICAO-CURSOR = 366; 
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;

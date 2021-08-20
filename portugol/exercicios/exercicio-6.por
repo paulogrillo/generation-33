@@ -8,7 +8,8 @@ programa
 	
 		//variaveis
 		real x1, x2, y1,y2, d 
-		//entradas
+		
+		//Entradas
 		escreva("Digite o valor de x1: ")
 		leia(x1)
 		
@@ -33,7 +34,7 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 486; 
+ * @POSICAO-CURSOR = 435; 
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;

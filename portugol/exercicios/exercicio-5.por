@@ -4,21 +4,20 @@
 programa
 {
 	
-	funcao inicio()
-	{
+	funcao inicio(){
 		inteiro primeiraNota, segundaNota, terceiraNota, media, mediaPond
 
-		escreva("digite a primeira nota ")
+		escreva("Digite a primeira nota ")
 		leia(primeiraNota)
 
-		escreva("digite a segunda nota ")
+		escreva("Digite a segunda nota ")
 		leia(segundaNota)
 
-		escreva("digite a terceira nota ")
+		escreva("Digite a terceira nota ")
 		leia(terceiraNota)
 
 		media = (primeiraNota*2)+(segundaNota*3)+(terceiraNota*5)
-		mediaPond =media/10
+		mediaPond = media/10
 
 		escreva("A média ponderada é "+mediaPond)
 
@@ -29,7 +28,7 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 581; 
+ * @POSICAO-CURSOR = 586; 
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
