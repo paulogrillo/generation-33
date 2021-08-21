@@ -2,20 +2,40 @@
 // pode ser resolvido segundo mostrado abaixo : ver Imagem
 //Escreva um sistema que lê os coeficientes a,b,c,d,e e f e calcula e mostra os valores de x e y.
 
-programa
-{
+programa{
 	
 	funcao inicio(){
 
 		//Variáveis 
-		real ax,by,dx,ey,c,f
+		real x,y,a,b,c,d,ee,f
 		
 		//Entrada de dados
-		escreva()
-		//Processamento
-		x = ((ax+by)-(dx*
-		//Saída de dados
+		escreva("a: ")
+		leia(a)
 		
+		escreva("b: ")
+		leia(b)
+		
+		escreva("c: ")
+		leia(c)
+		
+		escreva("d: ")
+		leia(d)
+		
+		escreva("e: ")
+		leia(ee)
+		
+		escreva("f: ")
+		leia(f)
+		
+		//Processamento
+		x = ((c*ee)-(b*f))/((a*ee)-(b*d))
+		y = ((a*f)-(c*d))/((a*ee)-(b*d))
+
+		
+		//Saída de dados
+		escreva ("x: " + x)
+		escreva ("\ny: " + y)
 	}
 }
 /* $$$ Portugol Studio $$$ 
@@ -23,7 +43,7 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 371; 
+ * @POSICAO-CURSOR = 520; 
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
