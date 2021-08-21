@@ -3,8 +3,7 @@
 //Supondo que a percentagem do distribuidor seja de 28% e os impostos de 45%,
 //escrever um sistema que leia o custo de fábrica de um carro e escreva o custo ao consumidor.
 
-programa
-{
+programa {
 	
 	funcao inicio(){
 		//Variáveis 
@@ -26,7 +25,7 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 472; 
+ * @POSICAO-CURSOR = 456; 
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
