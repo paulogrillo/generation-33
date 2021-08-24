@@ -27,8 +27,7 @@ programa{
 
 		escreva ("Salário total do funcionário do Cod: ", cod, " é R$: ", salarioTotal, " \n E o Salário excedente é R$: "+valorHoraExtra)
 			
-		}
-		senao {
+		}senao {
         	valorHoraExtra = 0
         	salarioTotal = salarioHora * numeroHoras
         
@@ -41,7 +40,7 @@ programa{
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 913; 
+ * @POSICAO-CURSOR = 1054; 
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;

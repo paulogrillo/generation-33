@@ -7,10 +7,11 @@ programa{
 
 		//Variáveis 
 		inteiro numero
-
-		escreva("Digite um numero positivo: ")
+		//Entrada de dados
+		escreva("Digite um numero inteiro: ")
 		leia(numero)
-
+		
+		//Processamento e saída
 		se ((numero % 2)==0 e (numero > 1)){
 			escreva("Este número é Par e é numero Positivo")
 		}senao se(numero > 1){
@@ -25,7 +26,7 @@ programa{
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 486; 
+ * @POSICAO-CURSOR = 487; 
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;

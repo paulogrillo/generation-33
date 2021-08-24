@@ -9,7 +9,7 @@
 programa{
 	
 	funcao inicio(){
-		
+
 		//Variáveis
 		real pesoTomate, pesoEstabelecido, excesso, multa
 		multa=0
@@ -19,13 +19,13 @@ programa{
 		//Entrada de dados
 		escreva("Digite a quantidade de kilos: ")
 		leia(pesoTomate)
-
+		//Processamento
 		se(pesoTomate > 50.00 ){
 			excesso = pesoTomate - pesoEstabelecido
 			multa = excesso * 4
 			escreva("O excesso é ",excesso,"Kg e a multa é R$ ",multa)
 		}senao {
-			escreva("O peso excesso é ",excesso,"Kg e a multa é R$ ",multa)
+			escreva("O peso excesso é ",excesso,"Kg então a multa é R$ ",multa)
 		}
 	}
 }
@@ -34,7 +34,7 @@ programa{
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 521; 
+ * @POSICAO-CURSOR = 865; 
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
