@@ -32,7 +32,6 @@ programa{
 		x = ((c*ee)-(b*f))/((a*ee)-(b*d))
 		y = ((a*f)-(c*d))/((a*ee)-(b*d))
 
-		
 		//Saída de dados
 		escreva ("x: " + x)
 		escreva ("\ny: " + y)
@@ -43,7 +42,7 @@ programa{
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 520; 
+ * @POSICAO-CURSOR = 300; 
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
