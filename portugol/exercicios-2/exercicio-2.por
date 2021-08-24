@@ -5,25 +5,26 @@
 //trabalho vale R$ 20,00. No final do processamento imprimir o salário total e o salário
 //excedente.
 
-programa{
+programa{
 	
-	funcao inicio(){
+	funcao inicio(){
 
 		inteiro cod
-		real n, extra, salario
+		real horas, extra, salario ,ex
 		
 		escreva("Qual o código do funcionário: ")
 		leia(cod)	
 		escreva("Digite as horas que ele trabalhou: ")
-		leia(n)
+		leia(horas)
 
-		se(n>50){
-			extra = n - 50
+		se(horas>50){
+			extra = horas - 50
 			salario = 500 + extra * 20
 		}senao {
-			salario = n * 10
+			salario = horas * 10
+			extra = 0
 		}
-		escreva("O funcionário Cod:", cod, " terá o salário de R$ ", salario) 
+		escreva("O funcionário Cod:", cod, " terá o salário de R$ ", salario," \n Salário excedente: ",extra) 
 	}
 }
 /* $$$ Portugol Studio $$$ 
@@ -31,7 +32,7 @@ programa{
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 456; 
+ * @POSICAO-CURSOR = 762; 
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
