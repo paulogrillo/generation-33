@@ -1,3 +1,6 @@
+//Faça um sistema que leia um número inteiro e mostre uma mensagem indicando se este
+//número é par ou ímpar, e se é positivo ou negativo.
+
 programa{
 	
 	funcao inicio(){
@@ -8,17 +11,13 @@ programa{
 		escreva("Digite um numero positivo: ")
 		leia(numero)
 
-		se (numero < 0){
-			escreva("Impossível realizar com numero negativo")
-		} senao se (numero == 0){
-			escreva("Zero é neutro!")
-		}senao se((numero % 2) == 0){
-			escreva("O numero digitado é par")
-		}senao {
-			escreva("É impar")
+		se ((numero % 2)==0 e (numero > 1)){
+			escreva("Este número é Par e é numero Positivo")
+		}senao se(numero > 1){
+			escreva("Este número é Impar e é numero positivo")
+		}senao{
+			escreva("Este numero é negativo")
 		}
-	
-		
 	}
 }
 /* $$$ Portugol Studio $$$ 
@@ -26,7 +25,7 @@ programa{
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 120; 
+ * @POSICAO-CURSOR = 486; 
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
