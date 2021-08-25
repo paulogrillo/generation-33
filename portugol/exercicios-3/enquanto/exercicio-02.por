@@ -4,24 +4,19 @@
 //três (imprimindo o novo valor) até que ele seja maior do que 100. Ex.: se o usuário
 //digita 5, deveremos observar na tela a seguinte sequência: 5 15 45 135.
 
-programa{
+programa{
 	
-	funcao inicio(){
+	funcao inicio(){
 		//Variáveis base
-		inteiro numero = 0
-		inteiro operacao = 0
+		real numero = 0.00
 
 		escreva("Entre com um numero itneiro: ")
 		leia(numero)
 		
 		enquanto(numero<=100){
-		numero = numero++
-		operacao = numero * 3
+		numero = numero *3
 		
-		escreva("\n3 x",numero," = ",operacao)
-			se(numero >100){
-				pare	
-			}
+		escreva("\n",numero)
 		}
 		
 		
@@ -32,7 +27,7 @@ programa{
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 24; 
+ * @POSICAO-CURSOR = 482; 
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
