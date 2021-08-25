@@ -1,4 +1,4 @@
-// ENQUANTO - COM ERRO !
+// ENQUANTO 
 
 //Obtenha um número digitado pelo usuário e repita a operação de multiplicar ele por
 //três (imprimindo o novo valor) até que ele seja maior do que 100. Ex.: se o usuário
@@ -10,7 +10,7 @@ programa{
 		//Variáveis base
 		real numero = 0.00
 
-		escreva("Entre com um numero itneiro: ")
+		escreva("Entre com um numero inteiro: ")
 		leia(numero)
 		
 		enquanto(numero<=100){
@@ -27,7 +27,7 @@ programa{
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 482; 
+ * @POSICAO-CURSOR = 365; 
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
