@@ -34,8 +34,8 @@ programa{
 
 
 		//Variáveis inicializadoras
-		inteiro habitantes = 3
-		inteiro contador = 3
+		inteiro habitantes = 20
+		inteiro contador = 20
 
 
 		para(inteiro x=1; x<=habitantes; x++){
@@ -90,7 +90,7 @@ programa{
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 1368; 
+ * @POSICAO-CURSOR = 853; 
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
