@@ -4,7 +4,19 @@
 programa{
 	
 	funcao inicio(){
-		escreva("Olá Mundo")
+		inteiro valorPontuacao[5]
+		inteiro maiorValor = 0
+
+		para(inteiro i=0; i<5; ++i){
+			escreva(i+1+"° Rodada Digite a pontuação")
+			leia(valorPontuacao[i])
+
+			se(valorPontuacao[i] > maiorValor){
+				maiorValor = valorPontuacao[i]	
+			}
+		}
+		escreva("Maior pontuação foi ",maiorValor)
+		
 	}
 }
 /* $$$ Portugol Studio $$$ 
@@ -12,7 +24,7 @@ programa{
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 95; 
+ * @POSICAO-CURSOR = 493; 
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
