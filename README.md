@@ -1,5 +1,5 @@
 
-![alt text](https://storage.googleapis.com/boticarioovp/user-uploaded/images/0d5fa2be-494d-4c0d-967d-e8fab22ac496.png)
+![alt text](https://i.ibb.co/C7DVvgH/Generation.png)
 
 
 
