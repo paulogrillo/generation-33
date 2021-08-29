@@ -3,24 +3,28 @@
 // ###### GENERATION BRASIL 2021 TURMA 33 #######
 // SISTEMA QUE SIMULA UM E-COMMERCE
 
+
+
 programa{
+	inclua biblioteca Util
 	// Função MAIN
 	funcao inicio(){
 		apresentacao()
-		apresentacao2 ()
+		Util.aguarde(500)
+		apresentacao2()
 		perguntar()
 	}
 	
 	// Função do bloco - Apresentacao
 	funcao apresentacao(){
 		para(inteiro x=0; x<5; ++x){
-			cadeia linha1="######%############%############%##############%##########%##########%#########\n"
+			cadeia linha1="■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■\n"
 			escreva(linha1)
 		}
-			escreva("######%###########%#############% LOJA DevShoes %##########%##########%########\n")
-
+			escreva("■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■ LOJA DevShoes ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■\n")
+			
 		para(inteiro x=0; x<5; ++x){
-			cadeia linha2="######%############%############%##############%##########%##########%#########\n"
+			cadeia linha2="■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■\n"
 			escreva(linha2)
 		}
 	}
@@ -36,8 +40,10 @@ programa{
 		escreva(slogan)
 
 		escreva("\n ")
-		escreva("\t\t\t____^_______^______^______^______\n")
+		
+		escreva("\t\t\t■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■\n")
 	}
+	
 
 	funcao perguntar(){
 	caracter valor, s = 's', n = 'n'
@@ -63,7 +69,7 @@ programa{
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 1130; 
+ * @POSICAO-CURSOR = 279; 
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
