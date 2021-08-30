@@ -7,7 +7,7 @@
 
 programa{
 	inclua biblioteca Util
-
+	
 	funcao inicio(){
 		
 		//vetor - produto
@@ -80,10 +80,9 @@ programa{
 		
 		//VARIAVEIS ********************************************
 		inteiro x=0 
-		inteiro QUANTIDADE = 11
 		caracter valor, s = 's', n = 'n'
 		real total = 0.0, totalFinal = 0.0
-		caracter desejaComprar = 'x', continuarCompra = 'x'// opcaoPgto= 'x'
+		caracter desejaComprar = 'x', // opcaoPgto= 'x'
 		//********************************************************
 		
 
@@ -94,6 +93,7 @@ programa{
 			apresentacao()
 			Util.aguarde(500)
 			apresentacao2()
+			listarProduto()
 
 
 			//	FALTA DEFINIR	//enquanto(opcaoPgto=='x'ou opcaoPgto=='1' ou opcaoPgto=='2' ou opcaoPgto=='3')
@@ -109,11 +109,11 @@ programa{
 				
 			
 			//****************************************************************	
-				para(inteiro y=0; y<QUANTIDADE; y++){
+				para(inteiro y=0; y<10; y++){
 
 					se(desejaComprar == 's' ou desejaComprar == 'S'){
 						//cabeçalho LISTA DE PRODUTOS
-				       	QUANTIDADE = 11
+				       	
 				       	para(y=0; y<10; y++)
 	          				escreva(codigoProduto[y]+"\t" +nomeProduto[y]+"\t"+"R$ " +valorProduto[y]+ "\t\t"+estoqueProduto[y]+ "\n")
 				      	 }
@@ -207,6 +207,8 @@ programa{
 							limpa()
 							escreva("\nProduto inválido\n\n")
 							pare
+						}senao{		
+								
 						}
 			
 			}//@AQUI ACABA O SEGUNDO PARA
@@ -228,7 +230,24 @@ programa{
 
 
 
+			funcao listarProduto(){
+				
+					para(inteiro y=0; y<10; y++){
 
+					se(desejaComprar == 's' ou desejaComprar == 'S'){
+						//cabeçalho LISTA DE PRODUTOS
+				       	
+				       	para(y=0; y<10; y++)
+							escreva(codigoProduto[y]+"\t" +nomeProduto[y]+"\t"+"R$ " +valorProduto[y]+ "\t\t"+estoqueProduto[y]+ "\n")
+				      	 }
+				      	 senao{
+							escreva("\n\nAté breve!")
+							 //Finaliza o laço
+							pare
+						}
+				      	 escreva("\n") 
+					}
+				}
 			
 			//AQUI SÃO AS FUNÇÕES ÚTEIS
 
@@ -268,9 +287,9 @@ programa{
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 278; 
+ * @POSICAO-CURSOR = 6859; 
  * @PONTOS-DE-PARADA = ;
- * @SIMBOLOS-INSPECIONADOS = ;
+ * @SIMBOLOS-INSPECIONADOS = {nomeProduto, 14, 9, 11}-{codigoProduto, 27, 17, 13}-{carrinho, 40, 9, 8}-{qtaAdicionadoCarrinho, 53, 10, 21}-{estoqueProduto, 69, 18, 14}-{total, 84, 7, 5}-{totalFinal, 84, 20, 10};
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
  * @FILTRO-ARVORE-TIPOS-DE-SIMBOLO = variavel, vetor, matriz, funcao;
  */
