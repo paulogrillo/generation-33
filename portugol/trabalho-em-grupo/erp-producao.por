@@ -138,7 +138,7 @@ programa{
 
 					para(x=0; x<10; ++x){
 						se(codigoEscolhido == codigoProduto[x]){
-							limpa()
+
 							escreva ("COD "+codigoProduto[x]+"\t"+"PRODUTO "+nomeProduto[x]+" "+"VALOR "+valorProduto[x]+"\t"+"ESTOQUE "+estoqueProduto[x]+"\n")
 							escreva ("\n")
 								
@@ -271,9 +271,9 @@ programa{
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 2586; 
+ * @POSICAO-CURSOR = 3696; 
  * @PONTOS-DE-PARADA = ;
- * @SIMBOLOS-INSPECIONADOS = {nomeProduto, 14, 9, 11}-{codigoProduto, 27, 17, 13}-{carrinho, 40, 9, 8}-{qtaAdicionadoCarrinho, 53, 10, 21}-{estoqueProduto, 69, 18, 14}-{total, 84, 7, 5}-{totalFinal, 84, 20, 10};
+ * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
  * @FILTRO-ARVORE-TIPOS-DE-SIMBOLO = variavel, vetor, matriz, funcao;
  */
