@@ -1,5 +1,5 @@
-programa{
-	//SEGUNDA TENTATIVA
+programa{
+	//SEGUNDA TENTATIVA
 	inclua biblioteca Util
 	cadeia nomeProduto[] = {
 		"Tênis Nike        ", 
@@ -23,9 +23,9 @@ programa{
 		}
 	cadeia entradaProdutoCodigo=""
 	inteiro entradaProdutoQuantidade = 0
-	
-	inteiro carrinhoProduto[] //Posicao do Produto Escolhido
-	inteiro carrinhoProdutoQtd[]
+	inteiro carrinhoQuantidade = 0
+	inteiro carrinhoProduto[2] 
+	inteiro carrinhoProdutoQtd[2]
 	
 	//vetor - valor do produto
 	//inteiro valorProduto[10] = {200, 150, 100, 50, 500, 1000, 30, 25, 40, 120 }
@@ -58,13 +58,22 @@ programa{
 				desejaComprar = falso
 			}senao se(opcao ==1){
 				desejaComprar = verdadeiro
-				//fazer chamada fazer comprar
-				enquanto(continuar == ' ' ou continuar == 's' ou continuar == 'S') {
+				//fazer chamada fazer comprar]
+				logico temEspacoCarrinho = verdadeiro
+				enquanto(temEspacoCarrinho e (continuar == ' ' ou continuar == 's' ou continuar == 'S')) {
 					fazerCompra()
 					escreva("\n\n\n")
-					escreva("\tCONTINUAR A COMPRANDO? S/N : ")
-					leia(continuar)
+					temEspacoCarrinho = Util.numero_elementos(codigoProduto) >= carrinhoQuantidade
+					se (temEspacoCarrinho == falso){
+						escreva("\tOpa!")
+						pare
+					} senao {
+						escreva("\tCONTINUAR A COMPRANDO? S/N : ")
+						leia(continuar)
+					}
+
 				}
+				
 				desejaComprar = falso
 			}
 			
@@ -73,7 +82,7 @@ programa{
 			}
 		
 		
-	}//@ACABA AQUI  A FUNÇÃO MAIN 
+	}//@ACABA AQUI  A FUNÇÃO MAIN 
 
 
 	funcao fazerCompra() {
@@ -94,11 +103,9 @@ programa{
 			escreva("ESCOLHA QUANTIDADE: ")
 			leia(entradaProdutoQuantidade)
 			
-			//inteiro totalCarrinhoProdutos=Util.numero_elementos(carrinhoProduto)+1
-			
-			//carrinhoProduto[totalCarrinhoProdutos] = recuperarPosicaoDoProduto(entradaProdutoCodigo)
-			//carrinhoProdutoQtd[totalCarrinhoProdutos] = entradaProdutoQuantidade
-					
+			carrinhoProduto[carrinhoQuantidade] = recuperarPosicaoDoProduto(entradaProdutoCodigo)
+			carrinhoProdutoQtd[carrinhoQuantidade] = entradaProdutoQuantidade
+			carrinhoQuantidade = carrinhoQuantidade + 1
 	}
 
 	funcao inteiro recuperarPosicaoDoProduto(cadeia valor) {
@@ -176,9 +183,9 @@ programa{
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 1893; 
- * @PONTOS-DE-PARADA = ;
- * @SIMBOLOS-INSPECIONADOS = ;
+ * @POSICAO-CURSOR = 1532; 
+ * @PONTOS-DE-PARADA = 68, 71;
+ * @SIMBOLOS-INSPECIONADOS = {codigoProduto, 9, 8, 13}-{estoqueProduto, 19, 9, 14}-{carrinhoQuantidade, 26, 9, 18}-{carrinhoProduto, 27, 9, 15}-{carrinhoProdutoQtd, 28, 9, 18};
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
  * @FILTRO-ARVORE-TIPOS-DE-SIMBOLO = variavel, vetor, matriz, funcao;
  */
