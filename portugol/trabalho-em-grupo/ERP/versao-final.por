@@ -13,7 +13,7 @@ programa{
 		cadeia nomeProduto[10]
 
           //vetor - código do produto
-          cadeia codigoProduto[10], codigoEscolhido="x"
+          cadeia codigoProduto[10], codigoEscolhido=" "
 
 
 		//vetor - Carrinho
@@ -33,11 +33,15 @@ programa{
 		
 		//VARIAVEIS ********************************************
 		inteiro x=0 
+		
 		caracter valor, s = 's', n = 'n'
 		real total = 0.0, totalFinal = 0.0
 		caracter desejaComprar = 'x', desejaComprar2 = 'x', continuarCompra = 'x'// opcaoPgto= 'x'
 		real valorTotal = 0.0, valorNota = 0.0, valorParcela, valorCompra = 0.0
 		inteiro formaPagamento
+		logico desejaAdicionarMais=falso
+		caracter desejaAdicionar='x'
+		inteiro fim=1
 		//********************************************************
 
 	funcao inicio(){
@@ -139,42 +143,31 @@ programa{
 		
 
 
-	funcao executarOperacao()
-	{
+	funcao executarOperacao(){
 		//****************************************************************	
+		escreva ("COD\t  Produto \t \tValor  Qnt\n")
 		para(inteiro y=0; y<10; y++){
-
 			se(desejaComprar == 's' ou desejaComprar == 'S'){
 				//cabeçalho LISTA DE PRODUTOS
-				
-		       	
 		       	para(y=0; y<10; y++)
+     			
      			escreva(codigoProduto[y]+"\t" +nomeProduto[y]+"\t"+"R$ " +valorProduto[y]+ "\t"+estoqueProduto[y]+ "\n")
 		      	escreva("\nExemplo: G2-1 - Tênis Nike \n")
 				escreva("SELECIONE O CODIGO DO PRODUTO: ")
-				
-		      	 }
+		      	}
 		      	 senao{
 					escreva("\n\nAté breve!")
 					 //Finaliza o laço
 					pare
-					
 				}
-				
 		      	
 			}
-				//Selecionar o produto
-				
-				leia(codigoEscolhido)
-				
-
-				
-				
-				
-
+		
+			leia(codigoEscolhido)
 			//***************** SELECIONE O CÓDIGO DO PRODUTO *******************
 
 			para(x=0; x<10; ++x){
+				
 				se(codigoEscolhido == codigoProduto[x]){
 
 					escreva ("COD "+codigoProduto[x]+"\t"+"PRODUTO: "+nomeProduto[x]+ +"VALOR R$"+valorProduto[x]+"\t"+"ESTOQUE:"+estoqueProduto[x]+"\n")
@@ -186,7 +179,7 @@ programa{
 					se(qtaAdicionadoCarrinho[x] <= estoqueProduto[x] e carrinho[x]==" " e qtaAdicionadoCarrinho[x] >0){
 						limpa()
 						
-						escreva ("■■■■■■■■■■■■■■■■■■■■■■■ Produto Selecionado ■■■■■■■■■■■■■■■■■■■■■■■■\n")
+						escreva ("■■■■■■■■■■■■■■■■■■■■■■■ Produtos Selecionado ■■■■■■■■■■■■■■■■■■■■■■■■\n")
 						escreva ("Código: Produto:           Valor:     Quantidade:\n")
 						carrinho[x]=codigoProduto[x]+"\t"+nomeProduto[x]+"R$ "+(valorProduto[x]*qtaAdicionadoCarrinho[x])+"\t   "+qtaAdicionadoCarrinho[x]+"\n"
 						
@@ -201,38 +194,35 @@ programa{
 						
 						
 						totalFinal = total+totalFinal
-						escreva(totalFinal)
+						escreva("\n")
+						escreva("\t\t\t\t\t\t Subtotal: R$"+totalFinal+"")
 						
-						escreva("\n\n\n")
-						escreva("\tCONTINUAR A COMPRANDO? S/N : ")
+						escreva("\n\n\n\n\n")
+						escreva("\t\t  CONTINUAR A COMPRANDO? S/N : ")
 						leia(continuarCompra)
 						limpa()					
 
-						se (continuarCompra != 'S' e continuarCompra != 's' e continuarCompra != 'N' e continuarCompra != 'n'){
-							escreva("Opção Inválida, escreve S ou N\n")
-							escreva ("Continuar a compra ? S/N ")
-							leia(continuarCompra)
-						} senao se (carrinho[0] != " " e carrinho[1] != " " e carrinho[2] != " " e carrinho[3] != " " e carrinho[4] != " " e carrinho[5] != " " e carrinho[6] != " " e carrinho[7] != " " e carrinho[8] != " " e carrinho[9] != " "){
-							escreva("Carrinho cheio, finalize sua compra")
-												
-							escreva ("\nContinuar a compra ? S/N ")
-							leia(continuarCompra)
-							limpa()
+							se (continuarCompra != 'S' e continuarCompra != 's' e continuarCompra != 'N' e continuarCompra != 'n'){
+								escreva("Opção Inválida, escreve S ou N\n")
+								escreva ("Continuar a compra ? S/N ")
+								leia(continuarCompra)
+								se(continuarCompra == 's' ou continuarCompra == 'S'){
+										executarOperacao()
+									}senao{escreva("Até breve!!")}
+						} 	senao se (carrinho[0] != " " e carrinho[1] != " " e carrinho[2] != " " e carrinho[3] != " " e carrinho[4] != " " e carrinho[5] != " " e carrinho[6] != " " e carrinho[7] != " " e carrinho[8] != " " e carrinho[9] != " "){
+								escreva("Carrinho cheio, finalize sua compra")
+													
+								escreva ("\nContinuar a compra ? S/N ")
+								leia(continuarCompra)
+								limpa()
 							se(continuarCompra == 'n' ou continuarCompra == 'N'){
-								escreva("\nOk...Terminando 11111 processo <nao quer colocar mais>...\n\n")
-								pare
+								limpa()
+								resetFun()
 							}
 						} senao se(continuarCompra == 'S'  ou continuarCompra == 's') {
 							executarOperacao()
 						} senao {
-							escreva("\n AQUI ENTRA A FUNÇÃO FINALIZAR COMPRA ! \n\n")
-							limpa()
-							apresentacao()
-							Util.aguarde(600)
-							apresentacao2()
-							resetFun()
-							
-							
+							finalizarCompra()
 						}
 							
 					}//@AQUI ACABA O SEGUNDO > SE
@@ -243,8 +233,40 @@ programa{
 					}
 					senao se (carrinho[x]!=" ") {
 						limpa()
-						escreva("\n\nVocê já adicionou esse item no carrinho! Escolha outro.\n\n")
-						pare
+						escreva("\n\nVocê já adicionou esse item no carrinho! \n")
+						escreva ("Gostária acrescentar? S/N")
+						leia(desejaAdicionar)
+						se(desejaAdicionar == 's' ou desejaAdicionar == 'S'){
+							escreva ("COD "+codigoProduto[x]+"\t"+"PRODUTO: "+nomeProduto[x]+ +"VALOR R$"+valorProduto[x]+"\t"+"ESTOQUE:"+estoqueProduto[x]+"\n")
+							escreva ("\n")
+								
+							escreva("ESCOLHA A QUANTIDADE : ")
+							leia(qtaAdicionadoCarrinho[x])
+							se(qtaAdicionadoCarrinho[x] <= estoqueProduto[x] ou qtaAdicionadoCarrinho[x] >0){
+								estoqueProduto[x] = estoqueProduto[x] - qtaAdicionadoCarrinho[x]
+								executarOperacao()
+								}
+								senao {
+									escreva("Não temos essa quantidade em estoque")
+									
+								}
+						}senao{
+							desejaAdicionarMais = falso
+						}
+						leia(continuarCompra)
+
+						se(continuarCompra == 's' ou continuarCompra == 'S'){
+							
+
+							escreva ("COD "+codigoProduto[x]+"\t"+"PRODUTO: "+nomeProduto[x]+ +"VALOR R$"+valorProduto[x]+"\t"+"ESTOQUE:"+estoqueProduto[x]+"\n")
+							escreva ("\n")
+								
+							escreva("ESCOLHA A QUANTIDADE : ")
+							leia(qtaAdicionadoCarrinho[x])
+
+							
+						}
+									
 					}
 					senao se (qtaAdicionadoCarrinho[x]<=0){
 						limpa()
@@ -256,8 +278,12 @@ programa{
 	
 				senao se (codigoEscolhido != codigoProduto[0] e codigoEscolhido != codigoProduto[1] e codigoEscolhido != codigoProduto[2] e codigoEscolhido != codigoProduto[3] e codigoEscolhido != codigoProduto[4] e codigoEscolhido != codigoProduto[5] e codigoEscolhido != codigoProduto[6] e codigoEscolhido != codigoProduto[7] e codigoEscolhido != codigoProduto[8] e codigoEscolhido != codigoProduto[9]) {
 					limpa()
-					escreva("\nProduto inválido\n\n")
-					pare
+					escreva("Opção Inválida, escreve S ou N\n")
+					escreva ("Continuar a compra ? S/N ")
+					leia(continuarCompra)
+					se(continuarCompra == 's' ou continuarCompra == 'S'){
+							executarOperacao()
+						}
 				}senao{
 					
 						
@@ -265,21 +291,42 @@ programa{
 			}
 
 			
-	}
+		}//@AQUI ACABA A FUNÇÃO  #executarOperacao
 
 		funcao finalizarCompra(){
 			formaPagamentoFun()
+			escreva("\n\n")
+			escreva("CARRINHO\n\n")
+			escreva ("COD\t  Produto \t   Valor\t    Qnt\n")
+			carrinho[x]=codigoProduto[x]+"\t"+nomeProduto[x]+"R$ "+(valorProduto[x]*qtaAdicionadoCarrinho[x])+"\t   "+qtaAdicionadoCarrinho[x]+"\n"
 
 			
-						carrinho[x]=codigoProduto[x]+"\t"+nomeProduto[x]+"R$ "+(valorProduto[x]*qtaAdicionadoCarrinho[x])+"\t   "+qtaAdicionadoCarrinho[x]+"\n"
-						
-						para(inteiro c=0; c<10; c++){
-							se(carrinho[c] != " "){
-								escreva (carrinho[c])
-								total = valorProduto[x]*qtaAdicionadoCarrinho[x]
-							}
+			para(inteiro c=0; c<10; c++){
+				se(carrinho[c] != " "){
+					escreva (carrinho[c])
+					total = valorProduto[x]*qtaAdicionadoCarrinho[x]
+				}
 			
-		}
+			}
+			escreva("\n")
+			escreva("Subtotal: R$ "+totalFinal+"\t\t Valor da nota: R$ "+valorTotal)
+			escreva("\n\n")
+
+			escreva("FINALIZAR COMPRA AGORA? (1) SIM ou (2) NAO: \n")
+			leia(fim)
+			
+			se(fim==1){
+				estoqueProduto[x]= estoqueProduto[x] - qtaAdicionadoCarrinho[x] 
+				apresentacao()
+				Util.aguarde(800)
+				apresentacao2()
+				resetFun()
+			
+			}senao{
+				escreva("FINALIZAR COMPRA AGORA?\n")
+				leia(fim)
+			}
+
 		}
 
 		funcao formaPagamentoFun(){
@@ -293,6 +340,7 @@ programa{
 			valorCompra = totalFinal * (10.00/100.00)
 			valorTotal = totalFinal - valorCompra
 			valorNota = valorTotal * (9.00/100.00)
+			escreva("ESPELHO DA NOTA\n\n")
 			escreva("O valor total da compra é de: R$ " ,valorTotal, " (Desconto 10%)	")
 		
 		
@@ -315,6 +363,10 @@ programa{
 
 			}
 			escreva("\nO imposto é de: " ,valorNota, " (9%) ")
+			escreva("\n")
+
+			
+
 		}//aqui acaba a funcao pagamento
 
 
@@ -336,6 +388,17 @@ programa{
 			
 				executarOperacao()
 			}
+
+
+
+
+
+
+
+
+
+
+			
 
 			// Função do bloco - Apresentacao 1
 			funcao apresentacao(){
@@ -375,8 +438,8 @@ programa{
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 6347; 
- * @PONTOS-DE-PARADA = ;
+ * @POSICAO-CURSOR = 9416; 
+ * @PONTOS-DE-PARADA = 16, 24;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
  * @FILTRO-ARVORE-TIPOS-DE-SIMBOLO = variavel, vetor, matriz, funcao;
