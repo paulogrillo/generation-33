@@ -24,6 +24,7 @@ programa{
 	cadeia entradaProdutoCodigo=""
 	inteiro entradaProdutoQuantidade = 0
 	inteiro carrinhoQuantidade = 0
+	inteiro carrinhoQuantidadeMaximo = 2
 	inteiro carrinhoProduto[2] 
 	inteiro carrinhoProdutoQtd[2]
 	
@@ -62,8 +63,11 @@ programa{
 				logico temEspacoCarrinho = verdadeiro
 				enquanto(temEspacoCarrinho e (continuar == ' ' ou continuar == 's' ou continuar == 'S')) {
 					fazerCompra()
-					escreva("\n\n\n")
-					temEspacoCarrinho = Util.numero_elementos(codigoProduto) >= carrinhoQuantidade
+					
+					temEspacoCarrinho = carrinhoQuantidade <= carrinhoQuantidadeMaximo
+					escreva("carrinhoQuantidadeMaximo:" + carrinhoQuantidadeMaximo + "\n")
+					escreva("carrinhoQuantidade:" + carrinhoQuantidade + "\n")
+					escreva(" temEspacoCarrinho:" + temEspacoCarrinho + "\n")
 					se (temEspacoCarrinho == falso){
 						escreva("\tOpa!")
 						pare
@@ -125,6 +129,7 @@ programa{
 		
 						
 	}
+
 	// Função do bloco - Apresentacao 1
 	funcao listarProduto(){
 		para(inteiro y=0; y < Util.numero_elementos(nomeProduto); y++) {
@@ -183,9 +188,9 @@ programa{
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 1532; 
- * @PONTOS-DE-PARADA = 68, 71;
- * @SIMBOLOS-INSPECIONADOS = {codigoProduto, 9, 8, 13}-{estoqueProduto, 19, 9, 14}-{carrinhoQuantidade, 26, 9, 18}-{carrinhoProduto, 27, 9, 15}-{carrinhoProdutoQtd, 28, 9, 18};
+ * @POSICAO-CURSOR = 1432; 
+ * @PONTOS-DE-PARADA = ;
+ * @SIMBOLOS-INSPECIONADOS = {codigoProduto, 9, 8, 13}-{estoqueProduto, 19, 9, 14}-{carrinhoQuantidade, 26, 9, 18}-{carrinhoProduto, 28, 9, 15}-{carrinhoProdutoQtd, 29, 9, 18};
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
  * @FILTRO-ARVORE-TIPOS-DE-SIMBOLO = variavel, vetor, matriz, funcao;
  */

@@ -117,18 +117,15 @@ programa{
 			erp()
 	}//@AQUI ACABA A FUNÇÃO MAIN
 
-
-	funcao erp() {
-
-
+			//FUNÇÃO PRINCIPAL
+			funcao erp() {
 			
 			enquanto (desejaComprar != 'S' e desejaComprar != 's' e desejaComprar != 'N' e desejaComprar != 'n'){
 				leia(desejaComprar)
 				limpa()
-				
 			
 				executarOperacao()
-			
+
 			}//@AQUI ACABA O SEGUNDO PARA
 
 					
@@ -152,8 +149,7 @@ programa{
 				}
 		      	 escreva("\n") 
 			}
-				
-				
+		
 				escreva("\n")
 				//Selecionar o produto
 				
@@ -163,7 +159,6 @@ programa{
 				leia(codigoEscolhido)
 
 			//***************** SELECIONE O CÓDIGO DO PRODUTO *******************
-
 			para(x=0; x<10; ++x){
 				se(codigoEscolhido == codigoProduto[x]){
 
@@ -218,7 +213,8 @@ programa{
 					senao se (qtaAdicionadoCarrinho[x] > estoqueProduto[x]) {
 						limpa()
 						escreva("\n\n Indisponível essa quantidade..\n\n")
-						pare
+						
+						executarOperacao()
 					}
 					senao se (carrinho[x]!=" ") {
 						limpa()
@@ -293,7 +289,7 @@ programa{
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 5385; 
+ * @POSICAO-CURSOR = 4285; 
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
