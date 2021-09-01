@@ -1,7 +1,10 @@
 package lista1;
 
 import java.util.Scanner;
-
+/* PROBLEMA: 
+ * Faça um sistema que leia a idade de uma pessoa expressa em anos, meses e
+	dias e mostre-a expressa apenas em dias.
+ */
 public class exercise1 {
 		
 	// Variáveis

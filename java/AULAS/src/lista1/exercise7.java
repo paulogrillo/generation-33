@@ -1,5 +1,5 @@
 
-/* PROBLEMA:
+/* PROBLEMA: 
  * Um sistema de equações lineares do tipo: , pode ser resolvido segundo mostrado abaixo :
 Escreva um sistema que lê os coeficientes a,b,c,d,e e f e calcula e mostra os
 valores de x e y.
