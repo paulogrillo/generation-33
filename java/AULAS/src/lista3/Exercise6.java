@@ -29,8 +29,12 @@ public class Exercise6 {
 			}
 			
 		}while(numero >0);
-		media = total/contador;
-		System.out.printf("Total de numero %.0f, total de números digitaldos multiplos de 3 %d e média %.2f",total,media,contador);
+		
+		if(contador > 0) {
+			media = total/contador;
+		}
+		
+		System.out.printf("Total de numero %.0f\nTotal de números digitaldos multiplos de 3 %d\nE a mé média %.2f",total,contador,media);
 	
 	}
 
