@@ -32,7 +32,7 @@ public class Exercise4 {
 			
 			
 			Scanner mySc = new Scanner(System.in);
-			int limited=0;
+			
 			int age;
 			int sex;
 
@@ -47,11 +47,14 @@ public class Exercise4 {
 			int numeroOutrosCalmas=0;
 			int numeroPessoasNervosas40=0;
 			int numeroPessoasCalmas18=0;
-			int pesquisa=0;			
+			int pesquisa=0;	
+			int contador=0;
+			final int PESSOAS=3;
 			
 			
-			while(limited <=150) {
-				System.out.printf("Digite a idade: ");
+			while(contador <PESSOAS) {
+				contador++;
+				System.out.printf("Digite a idade: "+contador+" ");
 				age = mySc.nextInt();
 				
 				System.out.printf("Digite o sexo: \n(1-feminino / 2-masculino / 3-Outros)");
@@ -70,23 +73,21 @@ public class Exercise4 {
 				if(pesquisa == 1) {
 					pessoasCalmas++;
 				}
-				else if(pesquisa == 2 && sex == 1){
+				if(pesquisa == 2 && sex ==1){
 					numeroMulheresNervosas++;
 				}
-				else if(pesquisa == 2 & age >40){
+				
+				
+				if(pesquisa == 2 & age >40){
 					numeroPessoasNervosas40++;
 				}
-				else if(pesquisa == 1 & age <18){
+				if(pesquisa == 1 & age <18){
 					numeroPessoasCalmas18++;
 				}
-				else if(pesquisa == 1 && sex == 2){
+				if(pesquisa == 1 && sex == 2){
 					numeroHomensAgressivos++;
 				}
-				else {
-					break;
-				}
-				
-			 limited++;
+		
 			}
 			
 			//o número de pessoas calmas;pessoasCalmas
