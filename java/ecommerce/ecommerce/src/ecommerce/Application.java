@@ -64,7 +64,8 @@ public class Application {
 		}
 
 		System.out.print("\n\n");
-		System.out.print("Subtotal: R$ " + totalFinal + "\t\t Valor da nota: R$ " + valorTotal+" \n");
+		System.out.print("Subtotal: R$ " + totalFinal +"\n"+ 
+		"\t\t Valor da nota: R$ " + valorTotal+" \n");
 		System.out.print("\nFINALIZAR COMPRA AGORA? (1) SIM ou (2) NAO: \n");
 		System.out.print("\n\n");
 
@@ -83,7 +84,7 @@ public class Application {
 	public static void formaPagamento(int x) {
 		Scanner leitor = new Scanner(System.in);
 
-		double valorTotal, valorNota = 0.0, valorParcela, valorCompra = 0.0, valorPagamento = 150.00;
+		double valorTotal = 0, valorNota = 0.0, valorParcela, valorCompra = 0.0, valorPagamento = 0.00;
 		int formaPagamento, emitirNota = 0, fim = 0;
 
 		System.out.println("Selecione a forma de pagamento?");
@@ -92,42 +93,44 @@ public class Application {
 		formaPagamento = leitor.nextInt();
 
 		if (formaPagamento == 1) {
-			valorCompra = totalFinal * (10.00 / 100.00);
-			valorTotal = totalFinal - valorCompra;
+			valorCompra = total * (10.00 / 100.00);
+			valorTotal = total - valorCompra;
 			valorNota = valorTotal * (9.00 / 100.00);
 			System.out.printf("O valor total da compra é de: R$%.2f", valorTotal);
 			System.out.println(" (Desconto de 10%)");
 
 		} else if (formaPagamento == 2) {
-			valorCompra = totalFinal * (10.00 / 100.00);
-			valorTotal = totalFinal + valorCompra;
+			valorCompra = total * (10.00 / 100.00);
+			valorTotal = total + valorCompra;
 			valorNota = valorTotal * (9.00 / 100.00);
 			System.out.printf("O valor total da compra é de: R$%.2f", valorTotal);
 			System.out.println(" Acréscimo de 10%");
 
 		} else if (formaPagamento == 3) {
-			valorCompra = totalFinal * (15.00 / 100.00);
-			valorTotal = totalFinal + valorCompra;
+			valorCompra = total * (15.00 / 100.00);
+			valorTotal = total + valorCompra;
 			valorNota = valorTotal * (9.00 / 100.00);
+			System.out.println("\n\n");
 			System.out.printf("O valor total da compra é de: R$%.2f", valorTotal);
 
 			valorParcela = valorTotal / 2;
 			System.out.print("\nA conta totalizou 2 parcelas de: R$ " + valorParcela);
 
 		}
+		
 		System.out.printf("\nO imposto é de R$%.2f:", valorNota);
 		System.out.println(" (9%)");
-
-		System.out.print("Deseja imitir nota? 1-SIM 2-NÃO");
+		System.out.println("\n\n");
+		System.out.print("Deseja imitir nota? 1-SIM 2-NÃO \n");
 		emitirNota = leitor.nextInt();
 
 		if (emitirNota == 1) {
 
 			// getNotaFiscal(x);
+			System.out.println("\n\n");
+			System.out.print("Subtotal: R$ " + total +"\n\n"+ "\t\t Valor da nota: R$ " + valorTotal);
 
-			System.out.print("Subtotal: R$ " + totalFinal + "\t\t Valor da nota: R$ " + valorNota);
-
-			System.out.print("FINALIZAR COMPRA AGORA? (1) SIM ou (2) NÃO: \n");
+			System.out.print("\n\n(1) SIM SAIR DO PROGRAMA AGORA OU (2) FAZER OUTRA COMPRA: \n");
 			fim = leitor.nextInt();
 
 			if (fim == 1) {
@@ -218,24 +221,22 @@ public class Application {
 
 		for (int x = 0; x < 10; x++) {
 
-			System.out.println("Deseja tentar novamente?");
-
 			if (codigoEscolhido.equals(codigoProduto[x])) {
 
-				System.out.println(codigoEscolhido);
-				System.out.println(codigoProduto[x]);
-
+				System.out.println("\n\n\n\n");
+				System.out.print("||||||||||||||||||||||||| Produto Selecionado ||||||||||||||||||||||||||||\n");
+				System.out.println("\n");
 				System.out.println("COD " + codigoProduto[x] + "\t" + "PRODUTO: " + nomeProduto[x] + "VALOR R$"
 						+ valorProduto[x] + "\t" + "ESTOQUE:" + estoqueProduto[x] + "\n");
 				System.out.println("\n");
-				System.out.println("ESCOLHA A QUANTIDADE : ");
+				System.out.print("ESCOLHA A QUANTIDADE : ");
 
 				qtaAdicionadoCarrinho[x] = leia.nextInt();
 
 				if (qtaAdicionadoCarrinho[x] <= estoqueProduto[x] && qtaAdicionadoCarrinho[x] > 0) {
 					
 				System.out.println("\n\n\n\n");
-				System.out.print("||||||||||||||||||||| Produtos Selecionado |||||||||||||||||||||||||\n");
+				System.out.print("||||||||||||||||||||| Carrinho |||||||||||||||||||||||||\n");
 				System.out.println("\n");
 				System.out.print("COD       Produto           Valor      Quantidade\n");
 				carrinho[x] = codigoProduto[x] + "\t" + nomeProduto[x] + "R$ "+ valorProduto[x]+ "\t   " + qtaAdicionadoCarrinho[x];
@@ -248,9 +249,10 @@ public class Application {
 					}
 				} // SEGUNDO IF ACABA AQUI
 
-				totalFinal = total + totalFinal;
-				System.out.println("\t\t\t\t\t\t Subtotal: R$" + total+" ");
-				System.out.println("\n");
+				
+				System.out.println("\n\n");
+				System.out.println("Subtotal: R$" + total+" ");
+				System.out.println("\n\n");
 				System.out.println("\t\t  CONTINUAR COMPRANDO? S/N : ");
 
 				continuarCompra = leia.next().charAt(0);
@@ -271,8 +273,8 @@ public class Application {
 
 					}
 				} else {
+					System.out.println("\n\n\n\n");
 					finalizarCompra(x);
-
 				}
 
 			}// PRIMEIRO IF ACABA AQUI
@@ -281,10 +283,6 @@ public class Application {
 		}// AQUI ACABA O FOR
 		
 	}// A CLASSE OPERAÇÃO ACABA AQUI
-	
-	
-	
-	
 	
 	
 	//Criando uma função parar tratar excessão
