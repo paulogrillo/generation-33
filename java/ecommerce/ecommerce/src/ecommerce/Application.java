@@ -1,36 +1,37 @@
+/**
+ * @author Paulo, Matehus, Beatriz, Fernando e Leonardo.
+ * 
+ * ECOMMERCE - DEV SHOES
+ */
+
 package ecommerce;
-
 import java.util.Scanner;
-
 public class Application {
-	// Scanners
-
-	// Variáveis - APRESENTAÇÃO
-
 	// variaveis - LISTA DE PRODUTO
 	static char desejaAdicionar = 'x', s = 's', n = 'n';
-
 	// Variáveis
-	
 	static char valor;
 	static double total = 0.0, totalFinal = 0.0;
-
 	static char desejaComprar = 'x', desejaComprar2 = 'x', continuarCompra = 'x';// opcaoPgto= 'x'
 	static double valorTotal = 0.0, valorNota = 0.0, valorParcela, valorCompra = 0.0;
 	static int formaPagamento;
 	static int fim = 1;
-
 	static String codigoEscolhido = "";
 
 	// Vetores - LISTA DE PRODUTO
-
-	// vetores
-	static String nomeProduto[] = { "Tênis Nike          ", "Tênis Adidas        ", "Tênis Puma          ",
-			"Camisa Nike         ", "Camisa Lacoste      ", "Camisa Supreme      ", "Meia Nike           ",
-			"Meia Adidas         ", "Bola de futebol     ", "Blusa moleton Nike  " };
+	static String nomeProduto[] = { 
+			"Tênis Nike          ", 
+			"Tênis Adidas        ", 
+			"Tênis Puma          ",
+			"Camisa Nike         ", 
+			"Camisa Lacoste      ", 
+			"Camisa Supreme      ", 
+			"Meia Nike           ",
+			"Meia Adidas         ", 
+			"Bola de futebol     ", 
+			"Blusa moleton Nike  " };
 
 	static String codigoProduto[] = { "G2-1", "G2-2", "G2-3", "G2-4", "G2-5", "G2-6", "G2-7", "G2-8", "G2-9", "G2-10" };
-
 	static int qtaAdicionadoCarrinho[] = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
 	static int valorProduto[] = { 200, 150, 100, 50, 500, 1000, 30, 25, 40, 120 };
 	static String carrinho[] = { " ", " ", " ", " ", " ", " ", " ", " ", " ", " " };
@@ -40,14 +41,7 @@ public class Application {
 		// Aprentação
 		getApresentacao();
 		executarOperacao();
-
 	}
-
-	/*
-	 * 
-	 * 
-	 * public static void limpar() { Runtime.getRuntime().exec("cls"); }
-	 */
 
 	// Finalizar compra
 	public static void finalizarCompra(int x) {
@@ -55,26 +49,24 @@ public class Application {
 		formaPagamento(x);
 
 		Scanner leitor = new Scanner(System.in);
-
+		
 		System.out.println("\n\n");
 		System.out.println("CARRINHO\n\n");
 		System.out.println("COD\t  Produto \t   Valor\t    Qnt\n");
 
-		carrinho[x] = codigoProduto[x] + "\t" + nomeProduto[x] + "R$ " + (valorProduto[x] * qtaAdicionadoCarrinho[x])
-				+ "\t   " + qtaAdicionadoCarrinho[x] + "\n";
+		carrinho[x] = codigoProduto[x] + "\t" + nomeProduto[x] + "R$ " + (valorProduto[x] * qtaAdicionadoCarrinho[x])+ "\t   " + qtaAdicionadoCarrinho[x] + "\n";
 
 		for (int c = 0; c < 10; c++) {
 			if (carrinho[c] != " ") {
 				System.out.print(carrinho[c] + "\n");
 				total = valorProduto[x] * qtaAdicionadoCarrinho[x];
 			}
-
 		}
 
-		System.out.println("\n");
-		System.out.println("Subtotal: R$ " + totalFinal + "\t\t Valor da nota: R$ " + valorTotal);
-		System.out.println("FINALIZAR COMPRA AGORA? (1) SIM ou (2) NAO: \n");
-		System.out.println("\n\n");
+		System.out.print("\n\n");
+		System.out.print("Subtotal: R$ " + totalFinal + "\t\t Valor da nota: R$ " + valorTotal+" \n");
+		System.out.print("\nFINALIZAR COMPRA AGORA? (1) SIM ou (2) NAO: \n");
+		System.out.print("\n\n");
 
 		fim = leitor.nextInt();
 
@@ -86,7 +78,6 @@ public class Application {
 			System.out.println("FINALIZAR COMPRA AGORA?\n");
 			fim = leitor.nextInt();
 		}
-
 	}
 
 	public static void formaPagamento(int x) {
@@ -153,6 +144,7 @@ public class Application {
 
 				if (fim == 1) {
 					estoqueProduto[x] = estoqueProduto[x] - qtaAdicionadoCarrinho[x];
+					System.out.println("\n\n\n\n\n");
 					getApresentacao();
 					executarOperacao();
 				}
@@ -218,10 +210,15 @@ public class Application {
 				System.out.println("SELECIONE O CODIGO DO PRODUTO: ");
 			}
 		} // Aqui acaba o for
+		
+		codigoEscolhido = leia.next().toUpperCase();
+		
 
-		codigoEscolhido = leia.next();
+		
 
 		for (int x = 0; x < 10; x++) {
+
+			System.out.println("Deseja tentar novamente?");
 
 			if (codigoEscolhido.equals(codigoProduto[x])) {
 
@@ -236,12 +233,12 @@ public class Application {
 				qtaAdicionadoCarrinho[x] = leia.nextInt();
 
 				if (qtaAdicionadoCarrinho[x] <= estoqueProduto[x] && qtaAdicionadoCarrinho[x] > 0) {
-
-					System.out.print("||||||||||||||||||||| Produtos Selecionado |||||||||||||||||||||||||\n");
-					System.out.print("Código: Produto:            Valor:     Quantidade:\n");
-
-					carrinho[x] = codigoProduto[x] + "\t" + nomeProduto[x] + "R$ "
-							+ (valorProduto[x] * qtaAdicionadoCarrinho[x]) + "\t   " + qtaAdicionadoCarrinho[x];
+					
+				System.out.println("\n\n\n\n");
+				System.out.print("||||||||||||||||||||| Produtos Selecionado |||||||||||||||||||||||||\n");
+				System.out.println("\n");
+				System.out.print("COD       Produto           Valor      Quantidade\n");
+				carrinho[x] = codigoProduto[x] + "\t" + nomeProduto[x] + "R$ "+ valorProduto[x]+ "\t   " + qtaAdicionadoCarrinho[x];
 
 					for (int c = 0; c < 10; c++) {
 						if (carrinho[c] != " ") {
@@ -252,14 +249,13 @@ public class Application {
 				} // SEGUNDO IF ACABA AQUI
 
 				totalFinal = total + totalFinal;
-
+				System.out.println("\t\t\t\t\t\t Subtotal: R$" + total+" ");
 				System.out.println("\n");
-				System.out.println("\t\t\t\t\t\t Subtotal: R$" + totalFinal + "");
-
 				System.out.println("\t\t  CONTINUAR COMPRANDO? S/N : ");
 
 				continuarCompra = leia.next().charAt(0);
-
+				
+			
 				if (continuarCompra == 's' || continuarCompra == 'S') {
 					executarOperacao();
 				} else if (continuarCompra != 'S' && continuarCompra != 's' && continuarCompra != 'N'
@@ -280,11 +276,29 @@ public class Application {
 				}
 
 			}// PRIMEIRO IF ACABA AQUI
+
+			
 		}// AQUI ACABA O FOR
-
+		
 	}// A CLASSE OPERAÇÃO ACABA AQUI
+	
+	
+	
+	
+	
+	
+	//Criando uma função parar tratar excessão
+	public static void chechaCodigoProduto(int x) {
 
-	// FUNÇÃO RESET - NÃO SEI SE VAI PRECISAR... VERIFICAR!
+		
+	}
+	
+	
+	
+	
+	
+	/*
+	FUNÇÃO RESET - NÃO SEI SE VAI PRECISAR... VERIFICAR!
 	public static void getReset() {
 		Scanner mySc = new Scanner(System.in);
 
@@ -296,10 +310,8 @@ public class Application {
 
 			executarOperacao();
 		}
-
 	}
-
-	// FUNÇÃO ERP - TBM VERIFICAR SE VAI PRECISAR
+*/
 	/*
 	 * public static void getErp() {
 	 * 
@@ -315,7 +327,6 @@ public class Application {
 	 * }//@AQUI TERMINA A FUNCAO ERP
 	 * 
 	 */
-
 	// FUNÇÃO - Aprentação
 	public static void getApresentacao() {
 
@@ -330,11 +341,28 @@ public class Application {
 		}
 
 		System.out.println("\n\n ");
-
 		System.out.printf("\t\t\t     Deseja comprar? \n ");
 		System.out.printf("\t\t\t\t   S/N ");
+		desejaComprar = mySc.nextLine().charAt(0);
+		System.out.println("\n\n\n");
+		
+		if (desejaComprar == 's' || desejaComprar == 'S' && desejaComprar != 'N' && desejaComprar != 'n') {
+			
+		}else if(desejaComprar == 'N' || desejaComprar == 'n') {
+			System.out.printf("\t\t\t     Até breve.. \n ");
+		}else {
+			System.out.println("\n\n Ops.. Tente digitar S/N");
 
-		desejaComprar = mySc.next().charAt(0);
+			System.out.printf("\t\t\t     Deseja comprar? \n ");
+			desejaComprar = mySc.nextLine().charAt(0);
+			System.out.println("\n\n\n");
+			if(desejaComprar == 's' || desejaComprar == 'S' && desejaComprar != 'N' && desejaComprar != 'n'){
+				executarOperacao();
+			}else if(desejaComprar == 'N' || desejaComprar == 'n'){
+				System.out.printf("\t\t\t     Até breve.. \n ");
+			}
+		}
+		
 	}
 
 }
