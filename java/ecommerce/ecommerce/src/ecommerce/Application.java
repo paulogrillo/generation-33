@@ -5,14 +5,20 @@
  */
 
 package ecommerce;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 public class Application {
+	
+	static Scanner mySc = new Scanner(System.in);
 	// variaveis - LISTA DE PRODUTO
+	
 	static char desejaAdicionar = 'x', s = 's', n = 'n';
 	// Variáveis
 	static char valor;
 	static double total = 0.0, totalFinal = 0.0;
-	static char desejaComprar = 'x', desejaComprar2 = 'x', continuarCompra = 'x';// opcaoPgto= 'x'
+	static String desejaComprar = "";
+	static char desejaComprar2 = 'x', continuarCompra = 'x';// opcaoPgto= 'x'
 	static double valorTotal = 0.0, valorNota = 0.0, valorParcela, valorCompra = 0.0;
 	static int formaPagamento;
 	static int fim = 1;
@@ -115,20 +121,24 @@ public class Application {
 
 			valorParcela = valorTotal / 2;
 			System.out.print("\nA conta totalizou 2 parcelas de: R$ " + valorParcela);
-
 		}
 		
-		System.out.printf("\nO imposto é de R$%.2f:", valorNota);
-		System.out.println(" (9%)");
+		System.out.printf("\nO imposto é de R$%.2f: ", valorNota);
 		System.out.println("\n\n");
+		System.out.printf("E o valor da nota é de R$%.2f: %s", valorTotal+valorNota,"9% de imposto");
+
+		System.out.println("\n\n");
+		
 		System.out.print("Deseja imitir nota? 1-SIM 2-NÃO \n");
 		emitirNota = leitor.nextInt();
 
 		if (emitirNota == 1) {
 
-			// getNotaFiscal(x);
+			System.out.print("||||||||||||||||||||| NOTA FISCAL |||||||||||||||||||||||||\n");
 			System.out.println("\n\n");
-			System.out.print("Subtotal: R$ " + total +"\n\n"+ "\t\t Valor da nota: R$ " + valorTotal);
+			System.out.printf("\nO imposto é de R$%.2f: ", valorNota);
+			System.out.println("\n\n");
+			System.out.printf("E o valor da nota é de R$%.2f: %s", valorTotal+valorNota,"9% de imposto");
 
 			System.out.print("\n\n(1) SIM SAIR DO PROGRAMA AGORA OU (2) FAZER OUTRA COMPRA: \n");
 			fim = leitor.nextInt();
@@ -197,32 +207,20 @@ public class Application {
 	 */
 
 	// FUNÇÃO - OPERAÇÃO
-	public static void executarOperacao() {
-
-		// Scanner da função
-		Scanner leia = new Scanner(System.in);
-		System.out.println("COD\t  Produto \t\t Valor  Qnt\n");
-
-		for (int y = 0; y < 10; y++) {
-			if (desejaComprar == 's' || desejaComprar == 'S') {
-
-				for (y = 0; y < 10; y++)
-					System.out.println(codigoProduto[y] + "\t" + nomeProduto[y] + "\t" + "R$ " + valorProduto[y] + "\t"
-							+ estoqueProduto[y]);
-				System.out.println("\nExemplo: G2-1 - Tênis Nike \n");
-				System.out.println("SELECIONE O CODIGO DO PRODUTO: ");
-			}
-		} // Aqui acaba o for
+	public static void executarOperacao(){
+		//FUNÇÃO listar produtos
+		listarProdutos();
+		//Produto escolhido
+	//	String produtoEscolhido = receberDados();
 		
-		codigoEscolhido = leia.next().toUpperCase();
+		codigoEscolhido = receberDados();
 		
-
+		boolean achouCodigoProduto=false;
 		
-
 		for (int x = 0; x < 10; x++) {
-
+			
 			if (codigoEscolhido.equals(codigoProduto[x])) {
-
+				 achouCodigoProduto=true;
 				System.out.println("\n\n\n\n");
 				System.out.print("||||||||||||||||||||||||| Produto Selecionado ||||||||||||||||||||||||||||\n");
 				System.out.println("\n");
@@ -231,7 +229,7 @@ public class Application {
 				System.out.println("\n");
 				System.out.print("ESCOLHA A QUANTIDADE : ");
 
-				qtaAdicionadoCarrinho[x] = leia.nextInt();
+				qtaAdicionadoCarrinho[x] = mySc.nextInt();
 
 				if (qtaAdicionadoCarrinho[x] <= estoqueProduto[x] && qtaAdicionadoCarrinho[x] > 0) {
 					
@@ -249,16 +247,26 @@ public class Application {
 					}
 				} // SEGUNDO IF ACABA AQUI
 
+				/*
+				 * 
 				
-				System.out.println("\n\n");
-				System.out.println("Subtotal: R$" + total+" ");
+
 				System.out.println("\n\n");
 				System.out.println("\t\t  CONTINUAR COMPRANDO? S/N : ");
 
-				continuarCompra = leia.next().charAt(0);
+				continuarCompra = mySc.next().charAt(0);
+				 */
 				
+				//REFATORADO
+				if(decisaoEntrada("Continuar comprando?")){
+					executarOperacao();
+				}else {
+					finalizarCompra(x);
+				}
 			
-				if (continuarCompra == 's' || continuarCompra == 'S') {
+			/* ANTES DE REFATORAR
+			 * 	if (continuarCompra == 's' || continuarCompra == 'S') {
+			 
 					executarOperacao();
 				} else if (continuarCompra != 'S' && continuarCompra != 's' && continuarCompra != 'N'
 						&& continuarCompra != 'n') {
@@ -277,26 +285,47 @@ public class Application {
 					finalizarCompra(x);
 				}
 
+			 	*/
+				
+				
 			}// PRIMEIRO IF ACABA AQUI
-
 			
 		}// AQUI ACABA O FOR
+		if(achouCodigoProduto == false) {
+			System.out.println("Ops.. esse código não existe..");				
+			desejaContinuar();
+		}
 		
 	}// A CLASSE OPERAÇÃO ACABA AQUI
-	
-	
-	//Criando uma função parar tratar excessão
-	public static void chechaCodigoProduto(int x) {
 
-		
+
+
+	public static void listarProdutos() {
+		//FUNÇÃO LISTAR PRODUTOS
+		System.out.println("COD\t  Produto \t\t Valor  Qnt\n");
+		for (int y = 0; y < 10; y++) {
+				for (y = 0; y < 10; y++)
+				System.out.println(codigoProduto[y] + "\t" + nomeProduto[y] + "\t" + "R$ " + valorProduto[y] + "\t"+ estoqueProduto[y]);
+		}// Aqui acaba o for
 	}
-	
-	
-	
-	
-	
+
+	//Criando uma função parar tratar excessão
+	public static void desejaContinuar() {
+		System.out.println("\n\n");
+		System.out.print("Se deseja tentar novamente digite S/N");
+		String continuarComprando = mySc.next();
+		
+		//Método equalsIgnoreCase vai referenciar a variavel ignorando se é maiuscula ou minuscula
+		if("s".equalsIgnoreCase(continuarComprando)) {
+			executarOperacao();
+		}else if("n".equalsIgnoreCase(continuarComprando)) {
+			System.out.println("Até breve..");
+		}else {
+			desejaContinuar();
+		}
+	}
 	/*
-	FUNÇÃO RESET - NÃO SEI SE VAI PRECISAR... VERIFICAR!
+	FUNÇÃO RESET - FUNÇÃO PRECISOU!
 	public static void getReset() {
 		Scanner mySc = new Scanner(System.in);
 
@@ -309,8 +338,8 @@ public class Application {
 			executarOperacao();
 		}
 	}
-*/
-	/*
+	 */
+	/* NÃO PRECISOU
 	 * public static void getErp() {
 	 * 
 	 * 
@@ -325,11 +354,33 @@ public class Application {
 	 * }//@AQUI TERMINA A FUNCAO ERP
 	 * 
 	 */
+	
+	//Sobrecarga da função receberDados
+	public static String receberDados(){
+		mySc = new Scanner(System.in);
+		return mySc.next().toUpperCase();
+	}
+	
+	// Função - Receber dados S/N
+	public static boolean decisaoEntrada(String mensagem){
+		
+		System.out.println("\n\n ");
+		System.out.printf("\t\t\t      %s \n ",mensagem);
+		System.out.printf("\t\t\t\t   S/N ");
+		desejaComprar = receberDados();
+		
+		if("s".equalsIgnoreCase(desejaComprar)){
+			return true;
+		}else if("n".equalsIgnoreCase(desejaComprar)) {
+			return false;
+		}else {
+			System.out.println("Código inválido.. Digite S/N");
+			return decisaoEntrada(mensagem);
+		}
+	}
+	
 	// FUNÇÃO - Aprentação
 	public static void getApresentacao() {
-
-		Scanner mySc = new Scanner(System.in);
-
 		for (int x = 0; x < 4; ++x) {
 			System.out.print("|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||\n");
 		}
@@ -337,28 +388,11 @@ public class Application {
 		for (int x = 0; x < 4; ++x) {
 			System.out.print("|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||\n");
 		}
-
-		System.out.println("\n\n ");
-		System.out.printf("\t\t\t     Deseja comprar? \n ");
-		System.out.printf("\t\t\t\t   S/N ");
-		desejaComprar = mySc.nextLine().charAt(0);
-		System.out.println("\n\n\n");
 		
-		if (desejaComprar == 's' || desejaComprar == 'S' && desejaComprar != 'N' && desejaComprar != 'n') {
-			
-		}else if(desejaComprar == 'N' || desejaComprar == 'n') {
-			System.out.printf("\t\t\t     Até breve.. \n ");
+		if(decisaoEntrada("Deseja comprar?")) {
+			executarOperacao();
 		}else {
-			System.out.println("\n\n Ops.. Tente digitar S/N");
-
-			System.out.printf("\t\t\t     Deseja comprar? \n ");
-			desejaComprar = mySc.nextLine().charAt(0);
-			System.out.println("\n\n\n");
-			if(desejaComprar == 's' || desejaComprar == 'S' && desejaComprar != 'N' && desejaComprar != 'n'){
-				executarOperacao();
-			}else if(desejaComprar == 'N' || desejaComprar == 'n'){
-				System.out.printf("\t\t\t     Até breve.. \n ");
-			}
+			System.out.println("Até breve...");
 		}
 		
 	}
