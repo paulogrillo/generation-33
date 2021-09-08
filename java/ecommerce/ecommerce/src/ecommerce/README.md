@@ -5,7 +5,6 @@ Projeto integrador desenvolvido durante o bootcamp da [Generation](https://brazi
 
   
 ### Habilidades desenvolvidas
-
  
  - Java
  - Scrum
