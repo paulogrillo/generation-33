@@ -10,7 +10,7 @@ import entities.ContaPoupanca;
 
 public class Executable {
 	static String slogan="| ---- Global system ----- |";
-	static String name="BancoG6";
+	static String name="G6BANK";
 	static char escolheTipoConta;
 	static int day;
 	static double valorMovimento=0.00;
@@ -57,25 +57,120 @@ public class Executable {
 							break;
 						}
 					}else {
-						System.out.println("Digitou merda!");
+						System.out.println("Valor inválido!");
 					}
 				
 				}//CONTA 2
 				else if (escolheTipoConta == '2'){
+					cabecalho();
+					System.out.println("CONTA CORRENTE");
 					
+					System.out.println("SALDO ATUAL: R$"+cc1.getSaldo());
+					tipoTransacao();
+					if("d".equalsIgnoreCase(tipoTransacao)){
+						leValorMovimento();
+						continuar();
+						if("n".equalsIgnoreCase(continuar)){
+							System.out.println("Até breve!");
+							break;
+						}
+						
+					}else if("c".equalsIgnoreCase(tipoTransacao)){
+						leValorMovimento();
+						continuar();
+						if("n".equalsIgnoreCase(continuar)){
+							System.out.println("Até breve!");
+							break;
+						}
+					}else {
+						System.out.println("Valor inválido!");
+					}
 				}//CONTA 3
 				else if (escolheTipoConta == '3'){
+					cabecalho();
+					System.out.println("CONTA ESPECIAL");
+					System.out.println("SALDO ATUAL: R$"+cesp1.getSaldo());
+					tipoTransacao();
+					if("d".equalsIgnoreCase(tipoTransacao)){
+						leValorMovimento();
+						continuar();
+						if("n".equalsIgnoreCase(continuar)){
+							System.out.println("Até breve!");
+							break;
+						}
+						
+					}else if("c".equalsIgnoreCase(tipoTransacao)){
+						leValorMovimento();
+						continuar();
+						if("n".equalsIgnoreCase(continuar)){
+							System.out.println("Até breve!");
+							break;
+						}
+					}else {
+						System.out.println("Valor inválido!");
+					}	
 					
 				}//CONTA 4
 				else if (escolheTipoConta == '4'){
+					cabecalho();
+					System.out.println("CONTA EMPRESA");
+
+					System.out.println("SALDO ATUAL: R$"+cemp1.getSaldo());
+					tipoTransacao();
+					if("d".equalsIgnoreCase(tipoTransacao)){
+						leValorMovimento();
+						continuar();
+						if("n".equalsIgnoreCase(continuar)){
+							System.out.println("Até breve!");
+							break;
+						}
+						
+					}else if("c".equalsIgnoreCase(tipoTransacao)){
+						leValorMovimento();
+						continuar();
+						if("n".equalsIgnoreCase(continuar)){
+							System.out.println("Até breve!");
+							break;
+						}
+					}else {
+						System.out.println("Valor inválido!");
+					}	
 					
 				}//CONTA 5
 				else if (escolheTipoConta == '5'){
+					cabecalho();
+					System.out.println("CONTA ESTUDANTIL");
+
+					System.out.println("SALDO ATUAL: R$"+cestu1.getSaldo());
+					tipoTransacao();
+					if("d".equalsIgnoreCase(tipoTransacao)){
+						leValorMovimento();
+						continuar();
+						if("n".equalsIgnoreCase(continuar)){
+							System.out.println("Até breve!");
+							break;
+						}
+						
+					}else if("c".equalsIgnoreCase(tipoTransacao)){
+						leValorMovimento();
+						continuar();
+						if("n".equalsIgnoreCase(continuar)){
+							System.out.println("Até breve!");
+							break;
+						}
+					}else {
+						System.out.println("Valor inválido!");
+					}	
+					
+				}else {
+					System.out.println("Até breve!");
+					break;
 					
 				}
 				
 				
 			}
+			
 		
 		}
 	
@@ -106,10 +201,6 @@ public class Executable {
 		System.out.println("4 - CONTA EMPRESA");
 		System.out.println("5 - CONTA ESTUDANTIL");
 		System.out.println("6 - SAIR\n");
-		
-		
-		
-		
 	}
 	
 	public static void leCodigoConta(){
