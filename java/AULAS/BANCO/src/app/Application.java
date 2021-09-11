@@ -7,14 +7,15 @@ public class Application {
 
 	public static void main(String[] args) {
 		
-		List<String> lista = new ArrayList<String>();
+		List<String> Contas = new ArrayList<String>();
 		
-		lista.forEach(String item => {
-			System.out.println("Items: ");
-		});
+		Contas.add("CONTA 1");
+		Contas.add("CONTA 1");
+		Contas.add("CONTA 1");
+		Contas.add("CONTA 1");
+		Contas.add("CONTA 1");
 		
-		lista.stream().filter(item => item.equals("")).
-	
+
 
 	}
 
