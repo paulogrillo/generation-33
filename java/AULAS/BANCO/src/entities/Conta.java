@@ -1,7 +1,7 @@
 package entities;
 
 public class Conta {
-	//Interfaces
+	//Atributos
 	private int numero;
 	private String cpf;
 	private double saldo;
@@ -30,6 +30,8 @@ public class Conta {
 		}else if (valor <0){
 			System.out.println("Valor informado negativo, impossivel realizar");
 		}else if (valor > saldo){
+			System.out.println("Saldo insuficiente!");
+		}else {
 			//saldo = saldo - valor
 			saldo -= valor;
 		}

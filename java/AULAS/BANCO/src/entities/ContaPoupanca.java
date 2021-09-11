@@ -26,8 +26,9 @@ public class ContaPoupanca extends Conta {
 		double valorCorrecao;
 		if(diaInformado == this.diaAniversario){
 			valorCorrecao = (super.getSaldo() * 0.005);
-			
 			super.credito(valorCorrecao);
+		}else {
+			System.out.println("Você não possue beneficios para resgatar. Obrigado!");
 		}
 	}
 	

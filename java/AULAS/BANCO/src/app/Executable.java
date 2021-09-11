@@ -9,8 +9,11 @@ import entities.ContaEstudantil;
 import entities.ContaPoupanca;
 
 public class Executable {
+	static Scanner mySc = new Scanner(System.in);
+	static ContaPoupanca cp1 = new ContaPoupanca("222.222.222-72",1,5);
 	static String slogan="| ---- Global system ----- |";
 	static String name="G6BANK";
+	
 	static char escolheTipoConta;
 	static int day;
 	static double valorMovimento=0.00;
@@ -19,8 +22,10 @@ public class Executable {
 	
 	public static void main(String[] args) {
 		
+		
+		
 		//Instâncias
-		ContaPoupanca cp1 = new ContaPoupanca("222.222.222-72",1,5);
+				
 		ContaCorrente cc1 = new ContaCorrente("222.222.222-72",1);
 		ContaEspecial cesp1 = new ContaEspecial("222.222.222-72",1,5);
 		ContaEmpresa cemp1 = new ContaEmpresa("222.222.222-72",1);
@@ -31,18 +36,21 @@ public class Executable {
 		listaTipoConta();
 		leCodigoConta();
 
-			for(int x=0; x<10; ++x){	
-				System.out.println("MOVIMENTO "+x);	
+			for(int x=1; x<=10; ++x){		
 				
 				//CONTA 1
 				if(escolheTipoConta == '1'){
-					cabecalho();
 					
+					cabecalho();
+					System.out.printf("MOVIMENTO "+x+"\n");
 					System.out.println("CONTA POUPANÇA");
 					System.out.println("SALDO ATUAL: R$"+cp1.getSaldo());
 					tipoTransacao();
 					if("d".equalsIgnoreCase(tipoTransacao)){
 						leValorMovimento();
+						
+						cp1.debito(valorMovimento);
+						resgate();
 						continuar();
 						if("n".equalsIgnoreCase(continuar)){
 							System.out.println("Até breve!");
@@ -51,7 +59,11 @@ public class Executable {
 						
 					}else if("c".equalsIgnoreCase(tipoTransacao)){
 						leValorMovimento();
+						cp1.credito(valorMovimento);
+						resgate();
 						continuar();
+						
+						
 						if("n".equalsIgnoreCase(continuar)){
 							System.out.println("Até breve!");
 							break;
@@ -166,31 +178,39 @@ public class Executable {
 					System.out.println("Até breve!");
 					break;
 					
-				}
-				
+				}				
 				
 			}
 			
 		
 		}
 	
+	public static void resgate(){
+		System.out.println("Digite a data de hoje: ");
+		day = mySc.nextInt();
+		cp1.correcao(day);
+		if(day == cp1.getDiaAniversario()){
+			System.out.println("Parabéns pelo seu aniversário! \n");
+			System.out.println("Você receberá uma bonificaçõ! \n");
+		}else {
+			System.out.println("Sem bonificação no momento..");
+		}
+	}
 	
 	public static void continuar(){
-		Scanner mySc = new Scanner(System.in);
+		
 		System.out.println("Continuar S/N: _");
 		continuar = mySc.next();
 	}
 	public static void tipoTransacao() {
-		Scanner mySc = new Scanner(System.in);
+		
 		System.out.println("MOVIMENTO - D-debito ou C-Crédito: _");
 		tipoTransacao = mySc.next();
 	}
 	
 	public static void leValorMovimento() {
-		Scanner mySc = new Scanner(System.in);
 		System.out.println("Valor movimento: R$ _");
 		valorMovimento = mySc.nextDouble();
-		
 	}
 	
 	public static void listaTipoConta(){
@@ -204,7 +224,6 @@ public class Executable {
 	}
 	
 	public static void leCodigoConta(){
-		Scanner mySc = new Scanner(System.in);
 		System.out.println("DIGITE O CODIGO DA CONTA : ");
 		escolheTipoConta = mySc.next().charAt(0);
 	}

@@ -16,7 +16,7 @@ public class ContaEmpresa extends Conta{
 	public double getEmprestimoEmpresa() {
 		return emprestimoEmpresa;
 	}
-
+	//Método
 	public void setEmprestimoEmpresa(double emprestimoEmpresa) {
 		this.emprestimoEmpresa = emprestimoEmpresa;
 	}
