@@ -22,8 +22,6 @@ public class Application {
 		for (int x = 0; x < 4; ++x) {
 			System.out.print("|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||\n");
 		}
-		
-		
 	}
 	
 	//Função erp
@@ -38,10 +36,12 @@ public class Application {
 				System.out.print("Digite o código do produto: ");
 				String id = sc.nextLine();
 				System.out.println("\n\n\n\n\n");
+				
 				dal.previewProduto(id);
 				System.out.print("\nDigite a quantidade necessária: ");
 				int quantidade = Integer.parseInt(sc.nextLine());
 				System.out.println("\n\n\n\n\n");
+				
 				dal.addProductCarrinho(id, quantidade);
 				dal.exibeProdutosCarrinho();
 				System.out.println("\nDeseja continuar a compra? S/N");

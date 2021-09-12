@@ -40,5 +40,7 @@ public class Product {
 	public void setPreco(int preco) {
 		this.preco = preco;
 	}
+	
+
 
 }

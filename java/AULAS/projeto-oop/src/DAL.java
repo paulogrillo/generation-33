@@ -39,12 +39,17 @@ public class DAL {
 
 	public void addProductCarrinho(String id, int quantidade) {
 		Product product = this.findProductById(id);
-		this.carrinho.addItem(product, quantidade);
+		if(quantidade <10) {
+			this.carrinho.addItem(product, quantidade);	
+		}else {
+			System.out.println("Quantidade insuficiente!");
+		}
+			
 	}
+	
 
 	private Product findProductById(String id) {
 		for (Product product : this.getProdutosDisponiveis()) {
-			
 			if (product.getId().equalsIgnoreCase(id)) {
 				return product;
 			}
