@@ -13,6 +13,10 @@ public class Product {
 		this.estoque = estoque;
 	}
 	
+	public int getEstoque(){
+		return this.estoque;
+	}
+	
 	public String getId() {
 		return this.id;
 	}
