@@ -12,6 +12,9 @@ public class Product {
 		this.preco = preco;
 		this.estoque = estoque;
 	}
+	public void setEstoque(int estoque){
+		this.estoque = estoque;
+	}
 	
 	public int getEstoque(){
 		return this.estoque;

@@ -4,8 +4,9 @@ import java.util.List;
 public class DAL {
 	
 	private List<Product> produtosDisponiveis;
-	private List<ItemCarrinho> addCarrinho;
+	private ItemCarrinho itemCarrinho;
 	private Carrinho carrinho;
+	private double totalFinal=0.00;
 	
 	public DAL() {
 		this.produtosDisponiveis = new ArrayList<Product>();
@@ -39,15 +40,17 @@ public class DAL {
 	public List<Product> getProdutosDisponiveis() {
 		return this.produtosDisponiveis;
 	}
+
 	
-	public void totalFinal(){
-		
+	public void getTotal(){
+	
 	}
 	
 	public void addProductCarrinho(String id, int quantidade){
 		Product product = this.findProductById(id);
 		if(quantidade <10){
 			this.carrinho.addItem(product, quantidade);	
+			
 		}else {
 			System.out.println("Quantidade insuficiente!");
 		}	

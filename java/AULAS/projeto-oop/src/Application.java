@@ -8,12 +8,10 @@ public class Application {
 	
 	
 	public static void main(String[] args) {
-		// getApresentacao();
-		//erp();
+		 getApresentacao();
+		erp();
 		
-		System.out.println(items.getQuantidade());
-		System.out.println();
-	
+		
 	}
 	
 	

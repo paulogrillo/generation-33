@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ERP {
-	
+	private Produto produto;
 	private List<Produto> produtosDisponiveis;
 	private Carrinho carrinho;
 	
@@ -56,13 +56,12 @@ public class ERP {
 		}	
 	}
 	
+	//Método totalizador
 	public void totalizador(String id, int quantidade){
 		Produto product = this.findProductById(id);
 			this.carrinho.addItem(product, quantidade);	
-			System.out.printf("Sub-total: %s",product.getPreco()*quantidade," \n");
-			
+			System.out.printf("Sub-total: R$%s",product.getPreco()*quantidade," \n");	
 	}
-	
 	
 	//Método buscar produto pelo id
 	private Produto findProductById(String id) {
@@ -82,6 +81,11 @@ public class ERP {
 	//Método exibe produtos no carrinho
 	public void exibeProdutosCarrinho() {
 		this.carrinho.listaProdutos();
+	}
+	
+	//Método exibe produtos no carrinho
+	public void emitirNota() {
+		carrinho.nota();
 	}
 	
 	//Método exibe preview produto escolhido

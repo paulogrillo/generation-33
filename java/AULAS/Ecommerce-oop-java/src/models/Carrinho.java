@@ -42,9 +42,20 @@ public class Carrinho {
 			this.mostraItem(item);
 			
 		}
-		
-		
 	}
+	
+	public void nota(){
+		System.out.println("\n\n\n");
+		System.out.println("\n\t\t==== NOTA FISCAL DO CONSUMIDOR ====\n");
+		System.out.format(formatter, "ID", "NOME", "PRECO", "QUANTIDADE");
+		System.out.println();
+		
+		for (ItemCarrinho item : this.itens) {
+			this.mostraItem(item);
+			
+		}
+	}
+	
 	//Método que mostra items adicionados
 	private void mostraItem(ItemCarrinho item) {
 		Produto produto = item.getProduto();

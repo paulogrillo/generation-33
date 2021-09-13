@@ -6,13 +6,23 @@ import models.ERP;
 import models.ItemCarrinho;
 
 public class app {
+	
 	static ERP util = new ERP();
 	static ItemCarrinho items = new ItemCarrinho(0);
 	static Scanner sc = new Scanner(System.in);
 	
+	static String op;
+	
 	public static void main(String[] args) {
 		 getApresentacao();
 			erp();
+	}
+	
+	//Forma de pagamento
+	public static void formaPagamento() {
+		
+		util.totalizador(null, 0);
+		
 	}
 	
 	//Função apresentação
@@ -31,7 +41,11 @@ public class app {
 		System.out.print("\n\t\t    Deseja fazer uma compra? S/N_");
 		String flag = sc.nextLine();
 		System.out.println("\n\n\n\n\n");
+		if (flag.toLowerCase().equals("n")) {
+			System.out.println("Até breve!");
+		}
 		while (flag.toLowerCase().equals("s")) {
+			
 
 			if (flag.toLowerCase().equals("s")) {
 				util.exibeProdutosDisponiveis();
@@ -53,18 +67,34 @@ public class app {
 				flag = sc.nextLine();
 				
 				if(flag.equalsIgnoreCase("n")){
-					System.out.println("Aqui entra forma de pagamento..");
+					
+					System.out.print("Deseja emitir sua Nota Fiscal? S/N");
+					op = sc.next();
+					
+					if("n".equalsIgnoreCase(op)){
+						System.out.println("\nDeseja fazer uma nova comprar?");
+					}else if("s".equalsIgnoreCase(op)){
+						util.emitirNota();
+						System.out.println();
+						util.totalizador(id, quantidade);
+						System.out.println("\n\nDeseja fazer outra compra? S/N");
+						op = sc.next();
+						if("s".equalsIgnoreCase(op)){
+							
+							erp();
+						}else{
+							System.out.println("Até breve..");
+						}
+					}else{
+						System.out.println("Digito inválido!");
+					}
 				}
+				
+				
 			}
 		}
-		if(flag.toLowerCase().equals("n")){
-			System.out.println("Ok.. Até breve..");
-		}else{
-			System.out.println("Você digigou um valor inválido!");
-			erp();
-		}
-	}
 	
+	}
 	
 	
 

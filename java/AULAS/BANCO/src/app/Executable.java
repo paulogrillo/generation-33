@@ -57,13 +57,14 @@ public class Executable {
 						continuar();
 
 						if("n".equalsIgnoreCase(continuar)){
+							
 							System.out.println("Até breve!");
 							break;
 						}
 					}else {
 						System.out.println("Valor inválido!");
 					}
-				
+					
 				}//CONTA CORRENTE
 				else if (escolheTipoConta == '2'){
 					cabecalho();
@@ -78,7 +79,9 @@ public class Executable {
 						continuar();
 						
 						if("n".equalsIgnoreCase(continuar)){
-							System.out.println("Até breve!");
+							resgate();
+							System.out.println("Talão");
+							
 							break;
 						}
 					}else if("c".equalsIgnoreCase(tipoTransacao)){
@@ -88,13 +91,13 @@ public class Executable {
 						continuar();
 
 						if("n".equalsIgnoreCase(continuar)){
-							System.out.println("Até breve!");
-							break;
+							cc1.cheque();
+							
 						}
 					}else {
 						System.out.println("Valor inválido!");
 					}
-					
+					cc1.cheque();
 					
 				}//CONTA 3
 				else if (escolheTipoConta == '3'){

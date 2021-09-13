@@ -3,6 +3,7 @@ public class ItemCarrinho {
 	
 	private Product produto;
 	private int quantidade;
+
 	
 	public ItemCarrinho(Product produto, int quantidade) {
 		this.produto = produto;
@@ -11,6 +12,11 @@ public class ItemCarrinho {
 	
 	public ItemCarrinho(int quantidade) {
 		this.quantidade = quantidade;
+	}
+	
+	public void getTotal(){
+		System.out.println("Total :");
+		
 	}
 	
 	public Product getProduto() {

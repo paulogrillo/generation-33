@@ -32,7 +32,11 @@ public class Carrinho {
 		for (ItemCarrinho item : this.itens) {
 			this.mostraItem(item);
 		}
+		
+		System.out.println("Total: "+getTotal());
 	}
+
+	
 	
 	private void mostraItem(ItemCarrinho item) {
 		Product produto = item.getProduto();
