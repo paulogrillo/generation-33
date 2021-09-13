@@ -64,7 +64,7 @@ public class Executable {
 						System.out.println("Valor inválido!");
 					}
 				
-				}//CONTA 2
+				}//CONTA CORRENTE
 				else if (escolheTipoConta == '2'){
 					cabecalho();
 					System.out.printf("MOVIMENTO "+x+"\n");
@@ -94,6 +94,8 @@ public class Executable {
 					}else {
 						System.out.println("Valor inválido!");
 					}
+					
+					
 				}//CONTA 3
 				else if (escolheTipoConta == '3'){
 					cabecalho();

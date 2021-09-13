@@ -1,6 +1,6 @@
-package exercicio1;
+package app;
 
-public class Application {
+public class Executable {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub

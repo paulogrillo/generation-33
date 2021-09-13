@@ -3,12 +3,16 @@ import java.util.Scanner;
 public class Application {
 	
 	static DAL dal = new DAL();
+	static ItemCarrinho items = new ItemCarrinho(0);
 	static Scanner sc = new Scanner(System.in);
 	
 	
 	public static void main(String[] args) {
-		 getApresentacao();
-		erp();
+		// getApresentacao();
+		//erp();
+		
+		System.out.println(items.getQuantidade());
+		System.out.println();
 	
 	}
 	

@@ -7,7 +7,7 @@ public class Carrinho {
 	private int total;
 	private String modoPagamento;
 	private String desconto;
-	private String valorCompra;
+	private double valorCompra;
 	static String formatter = "%-4s %-40s %-8s %-4s"; 
 	
 	public Carrinho() {
@@ -70,11 +70,11 @@ public class Carrinho {
 		this.desconto = desconto;
 	}
 	
-	public String getValorCompra() {
+	public double getValorCompra() {
 		return valorCompra;
 	}
 	
-	public void setValorCompra(String valorCompra) {
+	public void setValorCompra(double valorCompra) {
 		this.valorCompra = valorCompra;
 	}
 	

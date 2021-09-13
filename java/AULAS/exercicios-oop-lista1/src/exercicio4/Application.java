@@ -69,7 +69,7 @@ public class Application {
 		System.out.printf("Data de registro: "+f2Funcionario.registerDate+"\n");
 		System.out.printf("Salário: %.2f",f2Funcionario.wage,"\n");
 		if(f2Funcionario.pj == true){
-			System.out.print("\n");
+			System.out.print ("\n");
 			System.out.print("Funcionário PJ\n");
 			System.out.printf("A bonificação é %.2f ",bonificacao);
 			System.out.println("\n");

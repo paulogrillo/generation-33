@@ -4,8 +4,9 @@ import java.util.List;
 public class DAL {
 	
 	private List<Product> produtosDisponiveis;
+	private List<ItemCarrinho> addCarrinho;
 	private Carrinho carrinho;
-
+	
 	public DAL() {
 		this.produtosDisponiveis = new ArrayList<Product>();
 		this.carrinho = new Carrinho();
@@ -20,7 +21,9 @@ public class DAL {
 		Product MeiaAdidas = new Product("G2-8", "Meia Adidas", 25, 10);
 		Product BolaFutebol = new Product("G2-9", "Bola Futebol", 40, 10);
 		Product BlusaMoletonNike = new Product("G2-10", "Blusa Moleton Nike", 120, 10);
-
+		
+		
+		
 		this.produtosDisponiveis.add(TenisNike);
 		this.produtosDisponiveis.add(TenisAdidas);
 		this.produtosDisponiveis.add(TenisPuma);
@@ -36,18 +39,20 @@ public class DAL {
 	public List<Product> getProdutosDisponiveis() {
 		return this.produtosDisponiveis;
 	}
-
-	public void addProductCarrinho(String id, int quantidade) {
+	
+	public void totalFinal(){
+		
+	}
+	
+	public void addProductCarrinho(String id, int quantidade){
 		Product product = this.findProductById(id);
-		if(quantidade <10) {
+		if(quantidade <10){
 			this.carrinho.addItem(product, quantidade);	
 		}else {
 			System.out.println("Quantidade insuficiente!");
-		}
-			
+		}	
 	}
 	
-
 	private Product findProductById(String id) {
 		for (Product product : this.getProdutosDisponiveis()) {
 			if (product.getId().equalsIgnoreCase(id)) {
@@ -64,7 +69,6 @@ public class DAL {
 	
 	public void exibeProdutosCarrinho() {
 		this.carrinho.listaProdutos();
-		
 	}
 	
 	public void previewProduto(String id) {
