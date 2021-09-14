@@ -15,6 +15,7 @@ public class Util {
 	}
 	
 	static public void mostraUmProduto(Produto produto) {
+
 		String id = produto.getId();
 		String nome = produto.getNome();
 		double preco = produto.getPreco();

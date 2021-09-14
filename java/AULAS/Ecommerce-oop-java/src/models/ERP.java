@@ -118,14 +118,18 @@ public class ERP {
 	//Método buscar produto pelo id e adiciona quantidade
 	public void addProductCarrinho(Produto product, int quantidade){
 
-		Produto produtoCarrinho = findProductCarrinhoById(product.getId());
+		ItemCarrinho produtoCarrinho = findProductCarrinhoById(product.getId());
 		
 		if(produtoCarrinho == null){
-			produtoCarrinho = product;
+			
+			this.carrinho.addItem(product, quantidade);	
+			
+		}else {
+			//Vai acrescentar a quantidade no mesmo item
+			produtoCarrinho.setQuantidade(produtoCarrinho.getQuantidade()+quantidade);
 		}
-		this.carrinho.addItem(produtoCarrinho, quantidade);	
+
 		product.tirarEstoque(quantidade);
-	
 	}
 	
 	//Método totalizador
@@ -147,11 +151,11 @@ public class ERP {
 	}
 	
 	//Método buscar produto pelo id
-	public Produto findProductCarrinhoById(String id) {
+	public ItemCarrinho findProductCarrinhoById(String id) {
 		for (ItemCarrinho items : this.carrinho.getItens()) {
 			
 			if (items.getProduto().getId().equalsIgnoreCase(id)) {
-				return items.getProduto();
+				return items;
 			}
 		}
 		return null;
