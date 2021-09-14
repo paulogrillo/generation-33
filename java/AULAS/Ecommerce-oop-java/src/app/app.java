@@ -20,9 +20,9 @@ public class app {
 	
 	//Forma de pagamento
 	public static void formaPagamento() {
+		System.out.println("Escolha forma de pagamento: ");
 		
-		util.totalizador(null, 0);
-		
+
 	}
 	
 	//Função apresentação
@@ -35,6 +35,7 @@ public class app {
 			System.out.print("|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||\n");
 		}
 	}
+	
 	
 	//Função erp
 	public static void erp(){
@@ -67,6 +68,12 @@ public class app {
 				flag = sc.nextLine();
 				
 				if(flag.equalsIgnoreCase("n")){
+					System.out.println("Forma de pagamento");
+					
+				
+				 
+				 
+					util.formaPagamento(null, quantidade, id);
 					
 					System.out.print("Deseja emitir sua Nota Fiscal? S/N");
 					op = sc.next();
@@ -74,17 +81,22 @@ public class app {
 					if("n".equalsIgnoreCase(op)){
 						System.out.println("\nDeseja fazer uma nova comprar?");
 					}else if("s".equalsIgnoreCase(op)){
-						util.emitirNota();
+						
+						
+						//util.emitirNota();
 						System.out.println();
+						
 						util.totalizador(id, quantidade);
 						System.out.println("\n\nDeseja fazer outra compra? S/N");
 						op = sc.next();
+						
 						if("s".equalsIgnoreCase(op)){
 							
 							erp();
 						}else{
 							System.out.println("Até breve..");
 						}
+						*/
 					}else{
 						System.out.println("Digito inválido!");
 					}

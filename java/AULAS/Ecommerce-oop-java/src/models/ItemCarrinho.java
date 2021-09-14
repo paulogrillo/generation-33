@@ -12,8 +12,7 @@ public class ItemCarrinho {
 		this.quantidade = quantidade;
 	}
 	
-	
-	public ItemCarrinho(int quantidade) {
+	public ItemCarrinho(int quantidade){
 		super();
 		this.quantidade = quantidade;
 	}

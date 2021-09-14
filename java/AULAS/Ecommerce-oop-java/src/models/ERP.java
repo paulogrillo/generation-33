@@ -2,12 +2,18 @@ package models;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class ERP {
 	private Produto produto;
 	private List<Produto> produtosDisponiveis;
 	private Carrinho carrinho;
+	private String op="";
+	private Scanner sc = new Scanner(System.in);
 	
+	//Forma de pagamento
+	static double valorTotal = 0.0, valorNota = 0.0, valorParcela, valorCompra = 0.0;
+	static int formaPagamento;
 	
 	public ERP() {
 		this.produtosDisponiveis = new ArrayList<Produto>();
@@ -44,7 +50,41 @@ public class ERP {
 		return this.produtosDisponiveis;
 	}
 	
+	//Método forma de pagamento
+	
+	public void formaPagamento(Produto product, int quantidade, String id){
+		System.out.println("Selecione a forma de pagamento: ");
+		System.out.println("1 Débito ");
+		System.out.println("2 Crédito ");
+		System.out.println("3 3x parcelado ");
+		
+		op = sc.next();
+		
+		if("1".equals(sc)) {
+			System.out.println("Débito!");
+			valorTotal = product.getPreco()*quantidade;
+	
+			valorNota = valorTotal * (9.00 / 100.00);
+			//valorCompra = valorTotal * (10.00 / 100.00);
+			//valorTotal = valorTotal - valorCompra;
+			
+			System.out.printf("O valor total da compra é de: R$%.2f", valorNota);
+			System.out.println(" (Desconto de 10%)");
+			
+		}else if("2".equals(sc)){
+			System.out.println("Crédito!");
+		
+		
+		}else if("3".equals(sc)){
+			System.out.println("3 parcelas");
+		
+		
+		}
+		
+		
+	}
 
+	
 	
 	//Método buscar produto pelo id e adiciona quantidade
 	public void addProductCarrinho(String id, int quantidade){
@@ -84,7 +124,7 @@ public class ERP {
 	}
 	
 	//Método exibe produtos no carrinho
-	public void emitirNota() {
+	public void emitirNota(){
 		carrinho.nota();
 	}
 	
