@@ -35,19 +35,23 @@ public class Carrinho {
 	//Método que lista os produtos
 	public void listaProdutos(){
 		System.out.println("\nProdutos no carrinho: \n");
-		System.out.format(formatter, "ID", "NOME", "PRECO", "QUANTIDADE");
+		formatarTexto();
 		System.out.println();
 	
 		for (ItemCarrinho item : this.itens) {
 			this.mostraItem(item);
-			
 		}
+	}
+	
+	//Método formatação.
+	public void formatarTexto() {
+		System.out.format(formatter, "ID", "NOME", "PRECO", "QUANTIDADE");
 	}
 	
 	public void nota(){
 		System.out.println("\n\n\n");
 		System.out.println("\n\t\t==== NOTA FISCAL DO CONSUMIDOR ====\n");
-		System.out.format(formatter, "ID", "NOME", "PRECO", "QUANTIDADE");
+		formatarTexto();
 		System.out.println();
 		
 		for (ItemCarrinho item : this.itens) {
@@ -57,7 +61,7 @@ public class Carrinho {
 	}
 	
 	//Método que mostra items adicionados
-	private void mostraItem(ItemCarrinho item) {
+	private void mostraItem(ItemCarrinho item){
 		Produto produto = item.getProduto();
 		String id = produto.getId();
 		String nome = produto.getNome();
