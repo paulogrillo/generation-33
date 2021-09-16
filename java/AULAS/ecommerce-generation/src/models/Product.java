@@ -2,57 +2,76 @@ package models;
 
 public class Product {
 	
+	//Atributos
 	private String id;
-	private String nome;
-	private int preco;
-	private int estoque;
+	private String name;
+	private double price;
+	private int inventory;
 	
-	public Product(String id, String nome, int preco, int estoque) {
+	//Constructor 
+	public Product(String id, String name, double price, int inventory) {
+		super();
 		this.id = id;
-		this.nome = nome;
-		this.preco = preco;
-		this.estoque = estoque;
+		this.name = name;
+		this.price = price;
+		this.inventory = inventory;
 	}
 	
+	//Métodos
+	public void includeInventory(int quantidade){
+		if(quantidade >= 0){
+			this.inventory += quantidade;
+		}
+	}
+	
+	public void excludeInventory(int quantidade){
+		if (quantidade <0){
+			System.out.println("Impossivel realizar");
+		
+		}else if(quantidade <= inventory){
+			this.inventory -= quantidade;
+		}else{
+			System.out.println("Quantidade acima do estoque, impossivel realizar.");
+		}
+	}
+	
+	
+	//Getters and Setters
 	public String getId() {
-		return this.id;
+		return id;
 	}
-	
+
 	public void setId(String id) {
 		this.id = id;
 	}
-	
-	public String getNome() {
-		return this.nome;
-	}
-	
-	public void setNome(String nome) {
-		this.nome = nome;
+
+	public String getName() {
+		return name;
 	}
 
-	public String getPreco() {
-		return String.format("R$%d", this.preco);
+	public void setName(String name) {
+		this.name = name;
 	}
 
-	public void setPreco(int preco) {
-		this.preco = preco;
+	public double getPrice() {
+		return price;
+	}
+
+	public void setPrice(double price) {
+		this.price = price;
+	}
+
+	public int getInventory() {
+		return inventory;
+	}
+
+	public void setInventory(int inventory) {
+		this.inventory = inventory;
 	}
 	
-	//Método Listar produto
 	
-	/*
-	 * public void mostraProdutosDisponiveis() {
-		String formatter = "%-4s %-40s %-6s";
-		System.out.println("=== Produtos Disponíveis ===");
-		System.out.format(formatter, "ID", "NOME", "PRECO");
-		
-		for (Product product : this.produtosDisponiveis) {
-			System.out.println("\n");
-			String id = product.getId();
-			String nome = product.getNome();
-			String preco = product.getPreco();
-			System.out.format(formatter, id, nome, preco);
-		}
-	}
-	 */
+	
+	
+	
+
 }

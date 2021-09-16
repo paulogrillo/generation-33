@@ -5,13 +5,13 @@ import java.util.List;
 import java.util.Scanner;
 
 public class ERP {
-	private Produto produto;
+
 	private List<Produto> produtosDisponiveis;
 	private Carrinho carrinho;
 	private int op = 0;
 	private List<ItemCarrinho> itens;
 	static String formatter = "%-4s %-40s %-8s %-4s";
-	private String emitirNota;
+
 	// Forma de pagamento
 	static double valorTotal = 0.0, valorNota = 0.0, valorParcela, valorCompra = 0.0;
 	static int formaPagamento;

@@ -1,4 +1,4 @@
-package ecommerce;
+package models;
 
 public class Operacao {
 

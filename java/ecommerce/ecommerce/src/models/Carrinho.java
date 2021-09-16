@@ -1,4 +1,4 @@
-package ecommerce;
+package models;
 
 public class Carrinho {
 
@@ -14,7 +14,7 @@ public class Carrinho {
 		 */
 		
 		int limited = 10;
-		int[limited] qtaAdicionadoCarrinho;
+
 		
 		
 		

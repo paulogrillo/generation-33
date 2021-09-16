@@ -26,6 +26,9 @@ public class Application {
 		static int fim = 1;
 		static String codigoEscolhido = "";
 
+ 
+		
+		/*
 	//############## VETORES ###################
 	static String nomeProduto[] = { 
 			"Tênis Nike          ", 
@@ -39,12 +42,21 @@ public class Application {
 			"Bola de futebol     ", 
 			"Blusa moleton Nike  " };
 
+	
+	 * 
+	
 	static String codigoProduto[] = { "G2-1", "G2-2", "G2-3", "G2-4", "G2-5", "G2-6", "G2-7", "G2-8", "G2-9", "G2-10" };
 	static int qtaAdicionadoCarrinho[] = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
 	static int valorProduto[] = { 200, 150, 100, 50, 500, 1000, 30, 25, 40, 120 };
-	static String carrinho[] = { " ", " ", " ", " ", " ", " ", " ", " ", " ", " " };
-	static int estoqueProduto[] = { 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10 };
 	
+	
+	
+	static String carrinho[] = { " ", " ", " ", " ", " ", " ", " ", " ", " ", " " };
+	
+	
+	static int estoqueProduto[] = { 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10 };
+
+	*/
 	
 	//############## FUNÇÃO - main ###################
 	public static void main(String[] args) {

@@ -17,10 +17,6 @@ public class Produto {
 		this.estoque = estoque;
 	}
 	
-	public Produto() {
-		// TODO Auto-generated constructor stub
-	}
-
 	//Getters
 	public String getId() {
 		return id;
