@@ -73,8 +73,6 @@ public class Conta {
 		this.ativo = ativo;
 	}
 	
-	
-	
 	@Override
 	public String toString() {
 		return "Conta numero=" + numero + ", cpf=" + cpf + ", saldo=" + saldo ;
