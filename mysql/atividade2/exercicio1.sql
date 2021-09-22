@@ -2,57 +2,77 @@ create database db_generation_game_online;
 
 use db_generation_game_online;
 
+-- DATA BASE LEAGUE OF LEGENDS --
+
 create table tb_classes(
 	id bigint auto_increment,
-    nome varchar(255),
-    poder varchar(255),
-    energia int,
+    nameClass varchar(40),
+    skills varchar(20),
+    life int,
     primary key (id) 
 );
-
 -- Inserir/popular dados na tabela classe
-insert into tb_classes (nome, poder, energia) 
-		values ("jogador", "Dibre", 90);
-insert into tb_classes (nome, poder, energia) 
-		values ("arqueira", "chuva de flechas", 100);
-insert into tb_classes (nome, poder, energia) 
-		values ("sereia", "agua transbordante", 120);
-insert into tb_classes (nome, poder, energia) 
-		values ("morte", "sugadora de almas", 150);
-insert into tb_classes (nome, poder, energia) 
-		values ("Flash", "Correr rápido", 150);
-
+insert into tb_classes(nameClass, skills, life) values 
+	("lutador", "chute", 80),
+	("atirador", "chuva de flechas", 60),
+	("mago", "furacão", 65),
+	("suporte", "Escudo protetor", 102),
+	("assassino", "ataque voador", 70);
 select * from tb_classes;
 
 create table tb_personagens(
 id bigint auto_increment,
-nome varchar(20),
-genero varchar(20),
-raça varchar(20),
-ataque int,
-vida int,
+namePerson varchar (40),
+genre varchar (20),
+breed varchar (20),
+atack int,
+defence int,
 primary key (id),
-fk_id_classe bigint,
-foreign key (fk_id_classe) references tb_classes(id)
+
+-- Relacionamento -- 
+fk_id_classes bigint, 
+foreign key (fk_id_classes) references tb_classes(id)
 );
 
--- Inserir/popular dados na tabela personagem
-insert into  tb_personagens (nome, genero, raça, ataque, vida, fk_id_classe) 
-	values ("Ronaldinho Gaucho","masculino", "homano", 100, 150, 1);
-insert into  tb_personagens (nome, genero, raça, ataque, vida, fk_id_classe) 
-	values ("Joice","ela", "humana", 20, 150, 3);
-insert into  tb_personagens (nome, genero, raça, ataque, vida, fk_id_classe) 
-	values ("Juan","elu", "bullywug", 8, 50, 4);
-insert into tb_personagens (nome, genero,raça, ataque,vida, fk_id_classe)
-	values ("Raniere", "Menine", "Humana", 22, 100, 2);
-insert into tb_personagens (nome, genero,raça, ataque,vida, fk_id_classe)
-	values ("Raniere", "Menine", "Humana", 22, 100, 2);
-insert into tb_personagens (nome, genero,raça, ataque,vida, fk_id_classe)
-	values ("Raniere", "Menine", "Humana", 22, 100, 2);
-insert into tb_personagens (nome, genero,raça, ataque,vida, fk_id_classe)
-	values ("Raniere", "Menine", "Humana", 22, 100, 2);
-insert into tb_personagens (nome, genero,raça, ataque,vida, fk_id_classe)
-	values ("Raniere", "Menine", "Humana", 22, 100, 2);
+
+-- Populando/inserindo dados na tabela personagens ---
+insert into tb_personagens(namePerson, genre, breed, atack, defence) values
+	("Morgana","Feminino","Humano",50,25),
+	("Xinzao","masculino","Humano",60,50),
+	("Leblanc","Feminino","Humano",40,30),
+	("Kayle","Feminino","Anjo",55,70),
+	("Vayne","Feminino","Humano",60,50),
+	("Varus","Masculino","Humano",50,60),
+	("Zed", "Masculino", "Humano", 50, 20),
+	("Warwick", "masculino", "Cachorro", 30, 20);
+
 select * from tb_personagens;
+
+-- === Aplicando filtros === --
+
+-- 1-Faça um select que retorne os personagens 
+-- com o poder de ataque maior do que 50.
+select * from tb_personagens where atack > 50;
+
+-- 2-Faça um select trazendo  os personagens com 
+-- poder de defesa entre 1000 e 2000.
+select * from tb_personagens where defence between 20 and 30;
+
+-- 3-Faça um select  utilizando LIKE buscando 
+-- os personagens com a letra C.
+select * from tb_personagens where namePerson like "%c%";
+
+-- 4-Faça um um select com Inner join entre  
+-- tabela classe e personagem.
+select * from tb_personagens inner join tb_classes 
+on tb_classes.id = tb_personagens.fk_id_classes;
+
+-- 5-Faça um select onde traga todos os personagem de 
+-- uma classe específica (exemplo todos os personagens 
+-- que são arqueiros).
+select * from tb_personagens inner join tb_classes
+on tb_classes.id = tb_personagens.fk_id_classes
+where fk_id_classes = 2;
+
 
 
