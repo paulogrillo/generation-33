@@ -30,8 +30,8 @@ defence int,
 primary key (id),
 
 -- Relacionamento -- 
-fk_id_classes bigint, 
-foreign key (fk_id_classes) references tb_classes(id)
+fk_id_classe bigint, 
+foreign key (fk_id_classe) references tb_classes(id)
 );
 
 
@@ -65,14 +65,14 @@ select * from tb_personagens where namePerson like "%c%";
 -- 4-Faça um um select com Inner join entre  
 -- tabela classe e personagem.
 select * from tb_personagens inner join tb_classes 
-on tb_classes.id = tb_personagens.fk_id_classes;
+on tb_classes.nameClass = tb_personagens.namePerson;
 
 -- 5-Faça um select onde traga todos os personagem de 
 -- uma classe específica (exemplo todos os personagens 
 -- que são arqueiros).
 select * from tb_personagens inner join tb_classes
-on tb_classes.id = tb_personagens.fk_id_classes
-where fk_id_classes = 2;
+on tb_classes.id = tb_personagens.fk_id_classe
+where fk_id_classe = 2
 
 
 
