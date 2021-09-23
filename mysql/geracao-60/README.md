@@ -2,9 +2,13 @@
 
 
 # 
- ### DER - PROJETO INTEGRADOR
+ ### PROJETO INTEGRADOR
  ###### App - Geração 60
  # 
+
+### DER
+![alt text](https://i.ibb.co/GMmT95S/derr.png)
+
 
 Acesse:
 https://brazil.generation.org/
