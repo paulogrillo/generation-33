@@ -11,7 +11,7 @@
 • Fundamentos da programação<br>
 • Estrutura de dados<br>
 • Banco de Dados Mysql/SQL<br>
-• HTML5, CSS3, Bootstrap, DOM, Ajax<br>
+• HTML5, CSS3, Bootstrap, DOM, Angular<br>
 • Java, APIs, Spring<br>
 • Scrum<br>
 
