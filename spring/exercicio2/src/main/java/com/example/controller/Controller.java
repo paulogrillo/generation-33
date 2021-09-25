@@ -12,6 +12,7 @@ public class Controller {
 	@GetMapping
 	public String testeHello() {
 		return "Aprender mais sobre arquitetura DAL e toda camada controller.";
+		
 	}
 
 
