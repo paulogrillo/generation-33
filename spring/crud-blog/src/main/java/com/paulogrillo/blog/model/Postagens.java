@@ -14,10 +14,10 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 @Entity
-
-//Table nomeia a tabela no banco.
-@Table(name = "postagem")
+//Table = nomeia a tabela no banco.
+@Table(name = "tb_post")
 public class Postagens {
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
@@ -30,8 +30,8 @@ public class Postagens {
 	@Size(min = 10, max = 500)
 	private String texto;
 	
-	@Temporal(TemporalType.TIMESTAMP)
-	private Date date = new java.sql.Date(System.currentTimeMillis());
+	@Temporal(TemporalType.DATE)
+	private Date date = new java.util.Date();
 	
 	public long getId() {
 		return id;
@@ -59,10 +59,6 @@ public class Postagens {
 	public void setDate(Date date) {
 		this.date = date;
 	}
-	
-	
-	
-	
 	
 	
 }
